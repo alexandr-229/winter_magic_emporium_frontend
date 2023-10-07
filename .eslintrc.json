@@ -1,3 +1,46 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": [
+      "next/core-web-vitals",
+      "airbnb",
+      "airbnb-typescript"
+  ],
+  "parserOptions": {
+      "project": "./tsconfig.json"
+  },
+  "rules": {
+      "react/jsx-props-no-spreading": "off",
+      "no-unsafe-optional-chaining": "off",
+      "array-callback-return": "off",
+      "consistent-return": "off",
+      "react/no-unstable-nested-components": "off",
+      "react/function-component-definition": "off",
+      "jsx-a11y/label-has-associated-control": "off",
+      "react/require-default-props": "off",
+      "import/extensions": "off",
+      "jsx-a11y/click-events-have-key-events": "off",
+      "jsx-a11y/no-static-element-interactions": "off",
+      "no-param-reassign": "off",
+      "jsx-a11y/no-noninteractive-element-interactions": "off",
+      "no-noninteractive-tabindex": "off",
+      "jsx-a11y/mouse-events-have-key-events": "off",
+      "no-return-assign": "off",
+      "@typescript-eslint/no-unused-expressions": "off",
+      "import/prefer-default-export": "off",
+      "no-plusplus": "off",
+      "max-len": "off",
+      "no-nested-ternary": "off",
+      "import/no-extraneous-dependencies": "off",
+      "import/no-cycle": "off",
+      "react-hooks/exhaustive-deps": "off",
+      "react-hooks/rules-of-hooks": "off",
+      "react/destructuring-assignment": "off",
+      "@typescript-eslint/no-unused-vars": "off",
+      "no-extra-boolean-cast": "off",
+      "linebreak-style": 0,
+      "eslint-disable no-mixed-operators": "off",
+      "eslint-disable react/jsx-props-no-multi-spaces": "off",
+      "@typescript-eslint/no-shadow": "off",
+      "@typescript-eslint/naming-convention": "off"
+  },
+  "ignorePatterns": []
 }
