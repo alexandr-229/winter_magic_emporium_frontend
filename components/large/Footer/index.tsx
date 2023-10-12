@@ -1,8 +1,11 @@
 import React from 'react';
 import cn from 'classnames';
 import Image from 'next/image';
+import Link from 'next/link';
 import styles from './styles.module.css';
 import { Props } from './types';
+import TelegramIcon from './telegram.svg';
+import GitHubIcon from './github.svg';
 
 export const Footer = ({ className, ...props }: Props) => {
   const bottomText = `© ${new Date().getFullYear()} Example - All rights reserved`;
@@ -20,10 +23,10 @@ export const Footer = ({ className, ...props }: Props) => {
                 width={20}
                 height={20}
               />
-              <p className={styles.text}>
+              <a className={styles.text} href="telto:380631451375">
                 <span className={styles.bold}>+38 063 145 13 75 </span>
                 <span>(from 5:00 to 21:00)</span>
-              </p>
+              </a>
             </div>
             <div className={styles.block}>
               <Image
@@ -33,25 +36,17 @@ export const Footer = ({ className, ...props }: Props) => {
                 width={20}
                 height={16}
               />
-              <p className={cn(styles.text, styles.bold)}>Write us</p>
+              <a className={cn(styles.text, styles.bold)} href="mailto:ivanpolarus2009@gmail.com">Write us</a>
             </div>
           </div>
           <div>
             <div className={styles.block}>
-              <Image
-                className={cn(styles.icon, styles.pointer)}
-                src="/icons/telegram.svg"
-                alt="telegram"
-                width={20}
-                height={20}
-              />
-              <Image
-                className={cn(styles.icon, styles.pointer)}
-                src="/icons/github.svg"
-                alt="telegram"
-                width={30}
-                height={30}
-              />
+              <a href="https://t.me/SashaPoliarush" target="_blank">
+                <TelegramIcon className={cn(styles.icon, styles.pointer, styles.hoverIcon)} />
+              </a>
+              <a href="https://github.com/alexandr-229" target="_blank">
+                <GitHubIcon className={cn(styles.icon, styles.pointer, styles.large, styles.hoverIcon)} />
+              </a>
             </div>
           </div>
         </div>
@@ -60,31 +55,31 @@ export const Footer = ({ className, ...props }: Props) => {
         <div className={cn(styles.mainContent)}>
           <div className={styles.textBlock}>
             <p className={styles.title}>Navigation</p>
-            <p className={styles.info}>Questions</p>
-            <p className={styles.info}>Contents</p>
+            <Link href="/question" className={styles.info}>Questions</Link>
+            <Link href="/contacts" className={styles.info}>Contents</Link>
           </div>
           <div className={styles.textBlock}>
             <p className={styles.title}>For buyers</p>
-            <p className={styles.info}>Catalog</p>
-            <p className={styles.info}>Cart</p>
-            <p className={styles.info}>Favorites products</p>
-            <p className={styles.info}>Profile</p>
+            <Link href="/catalog" className={styles.info}>Catalog</Link>
+            <Link href="/cart" className={styles.info}>Cart</Link>
+            <Link href="/favorite" className={styles.info}>Favorites products</Link>
+            <Link href="/profile" className={styles.info}>Profile</Link>
           </div>
           <div className={styles.textBlock}>
             <p className={styles.title}>For partners</p>
-            <p className={styles.info}>Pickup points</p>
-            <p className={styles.info}>Customer Service</p>
-            <p className={styles.info}>Wholesale</p>
-            <p className={styles.info}>Main office</p>
-            <p className={styles.info}>Press service</p>
+            <Link href="/" className={styles.info}>Pickup points</Link>
+            <Link href="/" className={styles.info}>Customer Service</Link>
+            <Link href="/" className={styles.info}>Wholesale</Link>
+            <Link href="/" className={styles.info}>Main office</Link>
+            <Link href="/" className={styles.info}>Press service</Link>
           </div>
           <div className={styles.textBlock}>
             <p className={styles.title}>Services</p>
-            <p className={styles.info}>Delivery</p>
+            <Link href="/" className={styles.info}>Delivery</Link>
           </div>
           <div className={styles.textBlock}>
             <p className={styles.title}>Contact us</p>
-            <p className={styles.info}>Contacts</p>
+            <Link href="/contacts" className={styles.info}>Contacts</Link>
           </div>
         </div>
       </div>

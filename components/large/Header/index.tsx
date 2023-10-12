@@ -6,6 +6,9 @@ import { Button } from '@/components/small/Button';
 import { Search } from '@/components/small/Search';
 import styles from './styles.module.css';
 import { Props } from './types';
+import CartIcon from './cart.svg';
+import LikeIcon from './like.svg';
+import AvatarIcon from './avatar.svg';
 
 export const Header = ({ className, ...props }: Props) => {
   const cartSize = 1;
@@ -36,10 +39,10 @@ export const Header = ({ className, ...props }: Props) => {
               width={20}
               height={20}
             />
-            <p className={styles.text}>
+            <a className={styles.text} href="telto:380631451375">
               <span className={styles.bold}>+38 063 145 13 75 </span>
               <span>(from 5:00 to 21:00)</span>
-            </p>
+            </a>
           </div>
         </div>
       </header>
@@ -53,33 +56,17 @@ export const Header = ({ className, ...props }: Props) => {
         />
         <Button className={styles.button}>Catalog</Button>
         <Search className={styles.search} />
-        <Image
-          className={cn(styles.icon, styles.pointer)}
-          src="/icons/avatar.svg"
-          alt="logo"
-          width={26}
-          height={26}
-        />
-        <Image
-          className={cn(styles.icon, styles.pointer)}
-          src="/icons/like.svg"
-          alt="logo"
-          width={26}
-          height={26}
-        />
+        <AvatarIcon className={cn(styles.icon, styles.pointer, styles.iconHover)} />
+        <div>
+          <LikeIcon className={cn(styles.icon, styles.pointer, styles.iconHover)} />
+        </div>
         <div className={styles.cartWrapper}>
           {cartSize && (
             <div className={styles.cartSizeTag}>
               {cartSize > 9 ? '9+' : cartSize}
             </div>
           )}
-          <Image
-            className={cn(styles.icon, styles.pointer)}
-            src="/icons/cart.svg"
-            alt="logo"
-            width={26}
-            height={26}
-          />
+          <CartIcon className={cn(styles.icon, styles.pointer, styles.iconHover)} />
         </div>
       </div>
     </>

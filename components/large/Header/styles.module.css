@@ -42,6 +42,11 @@
 
 .menu a {
 	margin-right: 20px;
+	transition: 0.2s all;
+}
+
+.menu a:hover {
+	color: rgb(75, 74, 74);
 }
 
 .menu a:last-child {
@@ -90,4 +95,16 @@
 	line-height: normal;
 	position: absolute;
 	right: 3px;
+}
+
+.iconHover {
+	transition: 0.2s all;
+}
+
+.iconHover:hover path {
+	stroke: rgb(199, 197, 197);
+}
+
+.iconHover:active path {
+	stroke: rgb(174, 173, 173);
 }
