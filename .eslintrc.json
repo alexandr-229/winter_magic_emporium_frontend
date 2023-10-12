@@ -40,7 +40,8 @@
       "eslint-disable no-mixed-operators": "off",
       "eslint-disable react/jsx-props-no-multi-spaces": "off",
       "@typescript-eslint/no-shadow": "off",
-      "@typescript-eslint/naming-convention": "off"
+      "@typescript-eslint/naming-convention": "off",
+      "arrow-body-style": "off"
   },
   "ignorePatterns": []
 }

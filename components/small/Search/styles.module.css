@@ -1,0 +1,44 @@
+.wrapper {
+	width: 60%;
+	height: 45px;
+	position: relative;
+	border-radius: 8px;
+	overflow: hidden;
+}
+
+.input {
+	width: 100%;
+	height: 40px;
+	outline: none;
+	color: #000;
+	font-family: Montserrat;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	border-radius: 8px;
+	border: 1px solid #FFD704;
+	background: #FFF;
+	padding-left: 22px;
+}
+
+.button {
+	width: 48px;
+	height: 44px;
+	border-radius: 8px;
+	background: #FFD704;
+	position: absolute;
+	border: none;
+	cursor: pointer;
+	right: 0;
+	top: 0;
+	transition: 0.2s all;
+}
+
+.button:hover {
+	background: #ddba0c;
+}
+
+.button:active {
+	background: #c7a914;
+}

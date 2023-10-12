@@ -1,0 +1,23 @@
+.button {
+	width: 165px;
+	height: 45px;
+	border-radius: 8px;
+	background: #FFD704;
+	color: #222;
+	font-family: Roboto;
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	cursor: pointer;
+	border: none;
+	transition: 0.2s all;
+}
+
+.button:hover {
+	background: #ddba0c;
+}
+
+.button:active {
+	background: #c7a914;
+}
