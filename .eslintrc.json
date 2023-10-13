@@ -45,7 +45,8 @@
       "react/sx-a11y/anchor-is-valid": "off",
       "react/jsx-no-target-blank": "off",
       "react/no-unknown-property": "off",
-      "@next/next/no-img-element": "off"
+      "@next/next/no-img-element": "off",
+      "no-underscore-dangle": "off"
   },
   "ignorePatterns": []
 }
