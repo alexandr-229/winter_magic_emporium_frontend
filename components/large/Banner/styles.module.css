@@ -1,16 +1,20 @@
 .wrapper {
-	height: 325px;
+	height: 250px;
+	border-radius: 15px;
 	display: flex;
 	align-items: center;
+	overflow: hidden;
 }
 
 .infoWrapper {
-	width: 450px;
+	height: 250px;
 	max-height: 100%;
-	padding: 38px 100px 42px 50px;
 	border-radius: 15px 0px 0px 15px;
+	padding: 50px 40px 0 40px;
 	background: #222;
 	display: grid;
+	align-items: center;
+	grid-template-rows: 50px 80px 80px;
 	grid-template-areas:
 		"icon title"
 		". description"
@@ -19,14 +23,14 @@
 
 .icon {
 	grid-area: icon;
-	margin-right: 40px;
+	margin-right: 30px;
 }
 
 .title {
 	grid-area: title;
 	color: #FFF;
 	font-family: Roboto;
-	font-size: 30px;
+	font-size: 25px;
 	font-style: normal;
 	font-weight: 700;
 	line-height: normal;
@@ -37,15 +41,20 @@
 	grid-area: description;
 	color: #FFF;
 	font-family: Montserrat;
-	font-size: 15px;
+	font-size: 13px;
 	font-style: normal;
 	font-weight: 400;
 	line-height: 129.2%;
 	letter-spacing: 0.255px;
+	margin: 0;
+}
+
+.link {
+	grid-area: button;
+	text-decoration: none;
 }
 
 .button {
-	grid-area: button;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;

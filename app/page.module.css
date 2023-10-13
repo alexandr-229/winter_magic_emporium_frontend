@@ -1,6 +1,86 @@
-.button {
+.content {
+	width: 70%;
+	margin: 0 auto;
+	padding: 43px 0 72px 0;
+}
+
+.banner {
+	margin-bottom: 29px;
+}
+
+.categories {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding: 0 30px 0 10px;
+}
+
+.cardsBlock {
+	margin-bottom: 60px;
+}
+
+.cardsBlock:last-child {
+	margin-bottom: 0;
+}
+
+.blockHeader {
+	display: flex;
+	align-items: center;
+}
+
+.blockTitle {
+	color: #FFF;
+	font-family: Roboto;
+	font-size: 25px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 115.7%;
+	margin-right: 22px;
+}
+
+.blockBody {
+	display: flex;
+	align-items: center;
+	overflow-x: scroll;
+	padding-bottom: 40px;
+}
+
+.blockBody::-webkit-scrollbar {
+	height: 4px;
+	border-radius: 100px;
+}
+  
+.blockBody::-webkit-scrollbar-track {
+	background: #E7E7E7;
+	border-radius: 100px;
+}
+  
+.blockBody::-webkit-scrollbar-thumb {
+	border-radius: 100px;
+	background: #737373;
+}
+  
+.blockBody::-webkit-scrollbar-thumb:hover {
+	background: #575757;
+}
+
+.tag {
+	margin-right: 28px;
+}
+
+.link {
+	color: #D7D7D7;
+	font-family: Roboto;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 115.7%;
+	text-decoration-line: underline;
+}
+
+.cardItem {
+	margin-right: 20px;
+}
+
+.cardItem:last-child {
+	margin-right: 0;
 }

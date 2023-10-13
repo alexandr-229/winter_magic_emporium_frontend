@@ -11,8 +11,8 @@ export const Category = ({ category, ...props }: Props) => {
         className={styles.img}
         src={data[category].img}
         alt={data[category].text}
-        width={338}
-        height={145}
+        width={240}
+        height={102}
       />
       <p className={styles.text}>{data[category].text}</p>
     </div>

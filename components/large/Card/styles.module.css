@@ -2,6 +2,10 @@
 	width: 312px;
 }
 
+.link {
+	text-decoration: none;
+}
+
 .text {
 	font-family: Roboto;
 	font-style: normal;
@@ -16,6 +20,7 @@
 .imgWrapper {
 	width: 312px;
 	height: 312px;
+	margin-bottom: 29px;
 	overflow: hidden;
 	display: flex;
 	align-items: center;
