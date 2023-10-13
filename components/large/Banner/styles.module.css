@@ -1,0 +1,64 @@
+.wrapper {
+	height: 325px;
+	display: flex;
+	align-items: center;
+}
+
+.infoWrapper {
+	width: 450px;
+	max-height: 100%;
+	padding: 38px 100px 42px 50px;
+	border-radius: 15px 0px 0px 15px;
+	background: #222;
+	display: grid;
+	grid-template-areas:
+		"icon title"
+		". description"
+		". button";
+}
+
+.icon {
+	grid-area: icon;
+	margin-right: 40px;
+}
+
+.title {
+	grid-area: title;
+	color: #FFF;
+	font-family: Roboto;
+	font-size: 30px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	margin: 0;
+}
+
+.description {
+	grid-area: description;
+	color: #FFF;
+	font-family: Montserrat;
+	font-size: 15px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 129.2%;
+	letter-spacing: 0.255px;
+}
+
+.button {
+	grid-area: button;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 18px 0 22px;
+	width: 155px;
+}
+
+.icon {
+	grid-area: icon;
+}
+
+.line {
+	height: 100%;
+	width: 10px;
+	background: linear-gradient(180deg, #FFD704 0%, #FF2727 100%);
+}

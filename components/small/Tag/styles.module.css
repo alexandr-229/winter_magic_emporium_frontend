@@ -1,0 +1,15 @@
+.tag {
+	border-radius: 5px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 15px;
+}
+
+.text {
+	color: #FFF;
+	font-family: Montserrat;
+	font-size: 16px;
+	font-weight: 700;
+	line-height: normal;
+}
