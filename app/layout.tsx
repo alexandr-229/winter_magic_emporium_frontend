@@ -5,6 +5,7 @@ import { Inter } from 'next/font/google';
 import { ReduxProvider } from '@/store/provider';
 import { Header } from '@/components/large/Header';
 import { Footer } from '@/components/large/Footer';
+import { QueryProvider } from './query.provider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -21,11 +22,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ReduxProvider>
-          <Header />
-          {children}
-          <Footer />
-        </ReduxProvider>
+        <QueryProvider>
+          <ReduxProvider>
+            <Header />
+            {children}
+            <Footer />
+          </ReduxProvider>
+        </QueryProvider>
       </body>
     </html>
   );

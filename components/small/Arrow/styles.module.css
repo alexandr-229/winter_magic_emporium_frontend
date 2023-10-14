@@ -1,0 +1,25 @@
+.button {
+	width: 43px;
+	height: 43px;
+	flex-shrink: 0;
+	background-color: #E4E4E4;
+	border-radius: 50%;
+	border: none;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: 0.13s all;
+}
+
+.button:hover {
+	background-color: #cbc9c9;
+}
+
+.button:active {
+	background-color: #bab7b7;
+}
+
+.left {
+	transform: rotate(180deg);
+}

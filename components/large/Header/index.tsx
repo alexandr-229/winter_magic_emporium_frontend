@@ -54,7 +54,9 @@ export const Header = ({ className, ...props }: Props) => {
           width={58}
           height={58}
         />
-        <Button className={styles.button}>Catalog</Button>
+        <Link href="/catalog">
+          <Button className={styles.button}>Catalog</Button>
+        </Link>
         <Search className={styles.search} />
         <AvatarIcon className={cn(styles.icon, styles.pointer, styles.iconHover)} />
         <div>
