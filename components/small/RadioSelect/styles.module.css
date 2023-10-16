@@ -1,0 +1,43 @@
+.option {
+	height: 20px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	margin-bottom: 18px;
+}
+
+.option:last-child {
+	margin-bottom: 0;
+}
+
+.radioWrapper {
+	border-radius: 50%;
+	width: 16px;
+	height: 16px;
+	border: 2px solid #979797;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-right: 12px;
+}
+
+.radioWrapper.active {
+	border-color: #FFD704;
+}
+
+.radioActive {
+	height: 8px;
+	width: 8px;
+	border-radius: 50%;
+	background-color: #FFD704;
+}
+
+.optionText {
+	color: #C4C4C4;
+	font-family: Roboto;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 24px;
+	letter-spacing: 0.44px;
+}

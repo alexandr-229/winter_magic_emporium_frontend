@@ -1,0 +1,32 @@
+.wrapper {
+	display: flex;
+	align-items: center;
+	color: white;
+	list-style: none;
+	gap: 14px;
+}
+
+.arrow {
+	color: #FFD704;
+	cursor: pointer;
+	transition: 0.15s all;
+}
+
+.arrow:hover {
+	color: #bd9f08;
+}
+
+.button {
+	display: flex;
+	width: 42px;
+	height: 42px;
+	justify-content: center;
+	align-items: center;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.button.active {
+	background: linear-gradient(180deg, #F7F7F7 0%, #F0F0F0 100%);
+	color: #10223E;
+}
