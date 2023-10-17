@@ -12,6 +12,7 @@
 	margin-top: 75px;
 	min-height: 80vh;
 	width: 100%;
+	padding-bottom: 60px;
 }
 
 .loader {
@@ -48,6 +49,6 @@
 
 .pagination {
 	display: inline-block;
-	margin: 50px 0 60px 50%;
+	margin: 50px 0 0 50%;
 	transform: translateX(-50%);
 }
