@@ -35,10 +35,10 @@ export const useSlider = (photos: string[], tag: ProductTag) => {
     }
 
     if (index < activePhoto) {
-      return -(index * 500);
+      return -(index * 550);
     }
 
-    return index * 500;
+    return index * 550;
   };
 
   return {
