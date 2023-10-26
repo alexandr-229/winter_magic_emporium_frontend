@@ -46,7 +46,8 @@
       "react/jsx-no-target-blank": "off",
       "react/no-unknown-property": "off",
       "@next/next/no-img-element": "off",
-      "no-underscore-dangle": "off"
+      "no-underscore-dangle": "off",
+      "no-mixed-operators": "off"
   },
   "ignorePatterns": []
 }
