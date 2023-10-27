@@ -1,0 +1,21 @@
+.dialog {
+	display: flex;
+    opacity: 0;
+    border-radius: 12px;
+    background: #fff;
+    transform: translate(-50%, -80%);
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+    border: none;
+    z-index: 999;
+}
+
+:root:has(.dialog[open]) body {
+	overflow: hidden;
+}
+
+.dialog[open] {
+	opacity: 1;
+    pointer-events: all;
+    transform: translate(-50%, -50%);
+}

@@ -10,7 +10,7 @@ export class Store<T extends object> {
 	constructor(
 		createStore: (get: () => T, set: (store: Partial<T>) => void) => T,
 	) {
-		this.store = createStore(this.getStore, this.setStore);
+		this.store = createStore(this.getStore.bind(this), this.setStore.bind(this));
 	}
 
 	public getStore() {
