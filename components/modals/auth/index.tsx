@@ -19,7 +19,7 @@ const modals: Modals = {
 
 export const AuthModal = () => {
   const dialogRef = useRef<WrapperModalRef>(null);
-  const [activeModal, setActiveModal] = useState<ModalAlias>(ModalAlias.LOGIN);
+  const [activeModal, setActiveModal] = useState<ModalAlias>(ModalAlias.REGISTRATION);
 
   useEffect(() => {
     const dialog = dialogRef.current?.getWrapperRef().current;

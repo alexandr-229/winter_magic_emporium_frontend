@@ -34,7 +34,7 @@ export const Input = forwardRef(({
   return (
     <input
       onChange={handleOnChange}
-      className={cn(styles.input, {
+      className={cn(styles.input, className, {
         [styles.error]: error,
       })}
       {...props}
