@@ -8,6 +8,7 @@
     overflow: hidden;
     border: none;
     z-index: 999;
+    outline: none;
 }
 
 :root:has(.dialog[open]) body {

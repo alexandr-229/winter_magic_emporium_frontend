@@ -8,7 +8,7 @@ import styles from './styles.module.css';
 import { WrapperModalRef } from './types';
 
 export const Wrapper = forwardRef((
-  { children }: { children: JSX.Element },
+  { children }: { children: JSX.Element | JSX.Element[] },
   ref: ForwardedRef<WrapperModalRef>,
 ) => {
   const dialogRef = useRef<HTMLDialogElement>(null);
