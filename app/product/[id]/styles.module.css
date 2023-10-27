@@ -1,0 +1,81 @@
+.wrapper {
+	width: 90%;
+	margin: 0 auto;
+	padding: 20px 0 85px 0;
+	display: grid;
+	grid-template-areas:
+		"title title"
+		"slider description"
+		"similarProductsTitle similarProductsTitle"
+		"similarProducts similarProducts"
+		"popularProductsTitle popularProductsTitle"
+		"popularProducts popularProducts";
+}
+
+.title {
+	grid-area: title;
+}
+
+.slider {
+	grid-area: slider;
+}
+
+.description {
+	grid-area: description;
+}
+
+.similarProductsTitle {
+	grid-area: similarProductsTitle;
+}
+
+.similarProducts {
+	grid-area: similarProducts;
+}
+
+.popularProductsTitle {
+	grid-area: popularProductsTitle;
+}
+
+.popularProducts {
+	grid-area: popularProducts;
+}
+
+.loaderWrapper {
+	min-height: 550px;
+	width: 90vw;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.title {
+	color: #FFF;
+	font-family: Montserrat;
+	font-size: 35px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	margin-bottom: 46px;
+}
+
+.productsTitle {
+	color: #FFF;
+	font-family: Roboto;
+	font-size: 30px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 115.7%;
+}
+
+.similarProducts {
+	margin-bottom: 20px;
+}
+
+.errorIcon {
+	margin-right: 20px;
+}
+
+.errorMessage {
+	color: #FF2727;
+	font-size: 30px;
+}

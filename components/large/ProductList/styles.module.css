@@ -1,0 +1,50 @@
+.wrapper {
+	display: flex;
+	align-items: center;
+	overflow-x: scroll;
+	padding-bottom: 40px;
+}
+
+.wrapper::-webkit-scrollbar {
+	height: 4px;
+	border-radius: 100px;
+}
+  
+.wrapper::-webkit-scrollbar-track {
+	background: #E7E7E7;
+	border-radius: 100px;
+}
+  
+.wrapper::-webkit-scrollbar-thumb {
+	border-radius: 100px;
+	background: #737373;
+}
+  
+.wrapper::-webkit-scrollbar-thumb:hover {
+	background: #575757;
+}
+
+.loaderWrapper {
+	height: 450px;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.errorIcon {
+	margin-right: 20px;
+}
+
+.errorMessage {
+	color: #FF2727;
+	font-size: 30px;
+}
+
+.cardItem {
+	margin-right: 20px;
+}
+
+.cardItem:last-child {
+	margin-right: 0;
+}
