@@ -1,3 +1,5 @@
+import { ProductTag } from '@/components/large/Slider/types';
+
 export interface GetProductsResponse {
   data: Product[];
   pagination: Pagination;
@@ -10,7 +12,7 @@ export interface Product {
   price: number;
   discounts: number;
   quantity: number;
-  tag: string;
+  tag: ProductTag;
   new: boolean;
   popular: boolean;
   size: Size;

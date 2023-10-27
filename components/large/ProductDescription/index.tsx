@@ -45,7 +45,7 @@ export const ProductDescription = ({
           {getDollarPrice(pricePerItem)}
           <span className={cn(styles.text, styles.quantity)}> / PC</span>
         </p>
-        {discountPercent && (
+        {!!discountPercent && (
           <>
             <p
               className={cn(styles.text, styles.oldPrice)}
@@ -89,16 +89,18 @@ export const ProductDescription = ({
       <div className={styles.quantityBlock}>
         <p className={cn(styles.text, styles.blockTitle)}>Select quantity</p>
         <div className={styles.selectQuantity}>
-          <Button
+          <button
+            type="button"
             className={styles.quantityButton}
             onClick={decrementQuantity}
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 38 38" fill="black">
               <rect x="6.5" y="17.5" width="25" height="3" rx="1" fill="black" />
             </svg>
-          </Button>
+          </button>
           <p className={cn(styles.text, styles.productQuantity)}>{quantity}</p>
-          <Button
+          <button
+            type="button"
             className={styles.quantityButton}
             onClick={incrementQuantity}
           >
@@ -106,7 +108,7 @@ export const ProductDescription = ({
               <rect x="6.5" y="17.5" width="25" height="3" rx="1" fill="black" />
               <rect x="17.5" y="6.5" width="3" height="25" rx="1" fill="black" />
             </svg>
-          </Button>
+          </button>
         </div>
         <Button className={styles.cartButton}>
           <p className={styles.text}>To cart</p>

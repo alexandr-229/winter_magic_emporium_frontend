@@ -40,6 +40,14 @@
 	grid-area: popularProducts;
 }
 
+.loaderWrapper {
+	min-height: 550px;
+	width: 90vw;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
 .title {
 	color: #FFF;
 	font-family: Montserrat;
@@ -61,4 +69,13 @@
 
 .similarProducts {
 	margin-bottom: 20px;
+}
+
+.errorIcon {
+	margin-right: 20px;
+}
+
+.errorMessage {
+	color: #FF2727;
+	font-size: 30px;
 }

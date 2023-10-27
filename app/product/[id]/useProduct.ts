@@ -1,95 +1,40 @@
-import { Product } from '@/app/types';
+'use client';
+
+import { useParams } from 'next/navigation';
+import { useQuery } from 'react-query';
+import { getProduct, getSimilarProducts, getPopularProducts } from './client';
 
 export const useProduct = () => {
-  const products: Product[] = [
-    {
-      _id: '1',
-      photos: ['/uploads/2023-14-10/02:38:38.843-test-product.png'],
-      title: 'Product',
-      price: 100,
-      discounts: 10,
-      quantity: 1000,
-      tag: '',
-      new: false,
-      popular: true,
-      size: {
-        value: 100,
-        unit: 'm',
-      },
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    },
-    {
-      _id: '2',
-      photos: ['/uploads/2023-14-10/02:38:38.843-test-product.png'],
-      title: 'Product',
-      price: 100,
-      discounts: 10,
-      quantity: 1000,
-      tag: '',
-      new: false,
-      popular: true,
-      size: {
-        value: 100,
-        unit: 'm',
-      },
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    },
-    {
-      _id: '3',
-      photos: ['/uploads/2023-14-10/02:38:38.843-test-product.png'],
-      title: 'Product',
-      price: 100,
-      discounts: 10,
-      quantity: 1000,
-      tag: '',
-      new: false,
-      popular: true,
-      size: {
-        value: 100,
-        unit: 'm',
-      },
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    },
-    {
-      _id: '4',
-      photos: ['/uploads/2023-14-10/02:38:38.843-test-product.png'],
-      title: 'Product',
-      price: 100,
-      discounts: 10,
-      quantity: 1000,
-      tag: '',
-      new: false,
-      popular: true,
-      size: {
-        value: 100,
-        unit: 'm',
-      },
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    },
-    {
-      _id: '5',
-      photos: ['/uploads/2023-14-10/02:38:38.843-test-product.png'],
-      title: 'Product',
-      price: 100,
-      discounts: 10,
-      quantity: 1000,
-      tag: '',
-      new: false,
-      popular: true,
-      size: {
-        value: 100,
-        unit: 'm',
-      },
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    },
-  ];
+  const { id } = useParams();
+  const productId = !id || Array.isArray(id) ? '' : id;
+  const {
+    data: product,
+    isError: productError,
+    isLoading: productLoading,
+  } = useQuery(id, () => getProduct(productId));
+  const {
+    data: similarProducts,
+    isError: similarProductsError,
+    isLoading: similarProductsLoading,
+  } = useQuery(
+    ['similar', product?.price, product?.size.unit, product?.size.value],
+    () => getSimilarProducts(product?.price || 0, product?.size.unit || '', product?.size.value || 0),
+  );
+  const {
+    data: popularProducts,
+    isError: popularProductsError,
+    isLoading: popularProductsLoading,
+  } = useQuery('popular', getPopularProducts);
 
   return {
-    products,
+    product,
+    productError,
+    productLoading,
+    popularProducts,
+    popularProductsError,
+    popularProductsLoading,
+    similarProducts,
+    similarProductsError,
+    similarProductsLoading,
   };
 };

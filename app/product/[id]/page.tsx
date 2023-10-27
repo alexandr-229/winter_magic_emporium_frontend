@@ -1,44 +1,85 @@
+'use client';
+
 import React from 'react';
+import Image from 'next/image';
 import cn from 'classnames';
 import { ProductDescription } from '@/components/large/ProductDescription';
 import { Slider } from '@/components/large/Slider';
 import { ProductTag } from '@/components/large/Slider/types';
+import { Loader } from '@/components/small/Loader';
 import { ProductList } from '@/components/large/ProductList';
 import styles from './styles.module.css';
 import { useProduct } from './useProduct';
 
 const Product = () => {
-  const { products } = useProduct();
+  const {
+    product,
+    productError,
+    productLoading,
+    popularProducts,
+    popularProductsError,
+    popularProductsLoading,
+    similarProducts,
+    similarProductsError,
+    similarProductsLoading,
+  } = useProduct();
 
   return (
     <div className={styles.wrapper}>
-      <h1 className={styles.title}>Product title</h1>
-      <Slider
-        className={styles.slider}
-        photos={[
-          'https://t8g4g5t5.rocketcdn.me/wp-content/uploads/2019/11/AdriaticDragon-16-exterior-1619x1080.jpg',
-          'https://www.katamarans.com/wp-content/uploads/2019/09/salon-ncz5119-a3-scaled.jpg',
-          'https://pics.worldwideluxuryyacht.com/photos/boats/7143/original/1766_lagooncatamaranlagoon771676559929.jpg',
-        ]}
-        isFavorite
-        tag={ProductTag.ToOrder}
-      />
-      <ProductDescription
-        className={styles.description}
-        pricePerItem={100}
-        discountPercent={10}
-        totalQuantity={10}
-        sizes={['20m', '30m']}
-        description="Description Description Description"
-        size={{
-          height: '20m',
-          width: '30m',
-        }}
-      />
+      {false && (
+        <div className={styles.loaderWrapper}>
+          <Loader size={100} width={10} />
+        </div>
+      )}
+      {productError && (
+        <div className={styles.loaderWrapper}>
+          <Image
+            className={styles.errorIcon}
+            src="/icons/error.svg"
+            alt="error"
+            width={30}
+            height={30}
+          />
+          <p className={styles.errorMessage}>Something went wrong</p>
+        </div>
+      )}
+      {!productLoading && !productError && product && (
+        <>
+          <h1 className={styles.title}>{product?.title || ''}</h1>
+          <Slider
+            className={styles.slider}
+            photos={product?.photos || []}
+            isFavorite
+            tag={product?.tag || ProductTag.NotAvailable}
+          />
+          <ProductDescription
+            className={styles.description}
+            pricePerItem={product?.price || 0}
+            discountPercent={product?.discounts || 0}
+            totalQuantity={product?.quantity || 0}
+            sizes={[`${product?.size.value || 1}${product?.size.unit || 'm'}`]}
+            description="Description Description Description"
+            size={{
+              height: `${product?.size.value || 1}${product?.size.unit || 'm'}`,
+              width: `${product?.size.value || 1}${product?.size.unit || 'm'}`,
+            }}
+          />
+        </>
+      )}
       <p className={cn(styles.productsTitle, styles.similarProductsTitle)}>Similar products</p>
-      <ProductList products={products} loading={false} error={false} className={styles.similarProducts} />
+      <ProductList
+        products={similarProducts || []}
+        loading={similarProductsLoading}
+        error={similarProductsError}
+        className={styles.similarProducts}
+      />
       <p className={cn(styles.productsTitle, styles.popularProductsTitle)}>Popular products</p>
-      <ProductList products={products} loading={false} error={false} className={styles.popularProducts} />
+      <ProductList
+        products={popularProducts || []}
+        loading={popularProductsLoading}
+        error={popularProductsError}
+        className={styles.popularProducts}
+      />
     </div>
   );
 };

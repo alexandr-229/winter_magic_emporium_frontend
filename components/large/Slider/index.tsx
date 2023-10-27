@@ -37,9 +37,9 @@ export const Slider = ({
         {...props}
         className={cn(styles.sliderWrapper, className)}
       >
-        {photos.map((scr, index) => (
+        {photos.map((src, index) => (
           <img
-            src={scr}
+            src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${src}`}
             alt="Product"
             className={styles.photo}
             style={{
@@ -84,17 +84,19 @@ export const Slider = ({
           {tagInfo.text}
         </Tag>
       </div>
-      <div className={styles.dots}>
-        {photos.map((src, index) => (
-          <div
-            key={src}
-            onClick={() => setActivePhoto(index)}
-            className={cn(styles.dot, {
-              [styles.active]: activePhoto === index,
-            })}
-          />
-        ))}
-      </div>
+      {photos.length > 1 && (
+        <div className={styles.dots}>
+          {photos.map((src, index) => (
+            <div
+              key={src}
+              onClick={() => setActivePhoto(index)}
+              className={cn(styles.dot, {
+                [styles.active]: activePhoto === index,
+              })}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 };
