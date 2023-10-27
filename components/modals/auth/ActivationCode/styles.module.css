@@ -1,0 +1,102 @@
+.wrapper {
+	width: 450px;
+}
+
+.header {
+	width: 100%;
+	margin-bottom: 5px;
+	display: flex;
+	align-items: center;
+	position: relative;
+	justify-content: center;
+}
+
+.title {
+	color: #000;
+	font-family: Roboto;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 20.02px;
+	text-align: center;
+	margin-bottom: 30px;
+	margin-top: 10px;
+}
+
+.close {
+	position: absolute;
+	right: 0;
+	top: 10px;
+	cursor: pointer;
+}
+
+.codeInputWrapper {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 25px;
+}
+
+.codeInput {
+	display: inline-block;
+}
+
+.smallText {
+	text-align: center;
+	color: #484848;
+	font-family: Roboto;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 22px;
+	margin: 0 0 23px 0;
+}
+
+.underline {
+	text-decoration-line: underline;
+	cursor: pointer;
+	font-size: 15px;
+}
+
+.button {
+	width: 100% !important;
+}
+
+.iconsWrapper {
+	margin-top: 22px;
+}
+
+.iconTitle {
+	color: #484848;
+	text-align: center;
+	font-family: Roboto;
+	font-size: 13px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 16px;
+}
+
+.icons {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.icon {
+	width: 35px;
+	height: 35px;
+	border: 1px solid #DFDFDF;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: 0.15s all;
+	cursor: pointer;
+}
+
+.icon:hover {
+	background-color: #e9e6e6;
+}
+
+.icon:active {
+	background-color: #d6d4d4;
+}
