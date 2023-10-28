@@ -20,6 +20,7 @@ const modals: Modals = {
 export const AuthModal = () => {
   const dialogRef = useRef<WrapperModalRef>(null);
   const [activeModal, setActiveModal] = useState<ModalAlias>(ModalAlias.LOGIN);
+  const [extraArgs, setExtraArgs] = useState<Record<string, unknown>>({});
 
   useEffect(() => {
     const dialog = dialogRef.current?.getWrapperRef().current;
@@ -29,11 +30,16 @@ export const AuthModal = () => {
     }
   }, []);
 
+  const openModal = (modal: ModalAlias, extraArgs: Record<string, unknown>) => {
+    setActiveModal(modal);
+    setExtraArgs(extraArgs);
+  };
+
   const Modal = modals[activeModal];
 
   return (
     <Wrapper ref={dialogRef}>
-      <Modal />
+      <Modal extraArgs={extraArgs} openModal={openModal} />
     </Wrapper>
   );
 };

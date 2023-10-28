@@ -4,10 +4,11 @@ import { Input } from '@/components/small/Input';
 import { Button } from '@/components/small/Button';
 import styles from './styles.module.css';
 import { authModalStore } from '../store';
+import { ModalAlias, ModalProps } from '../types';
 
 const { onCloseAuthModal } = authModalStore.getStore();
 
-export const Login = () => {
+export const Login = ({ openModal }: ModalProps) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.header}>
@@ -28,7 +29,12 @@ export const Login = () => {
       <p className={styles.smallText}>
         Don&apos;t have an account?
         {' '}
-        <span className={styles.underline}>Sign Up</span>
+        <span
+          className={styles.underline}
+          onClick={() => openModal(ModalAlias.REGISTRATION, {})}
+        >
+          Sign Up
+        </span>
       </p>
       <Button className={styles.button}>
         Continue

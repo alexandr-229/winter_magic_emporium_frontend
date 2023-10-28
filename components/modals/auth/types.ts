@@ -16,4 +16,9 @@ export interface AuthModalStore {
   onCloseAuthModal: () => void;
 }
 
-export type Modals = Record<ModalAlias, FC>;
+export interface ModalProps {
+  openModal: (modal: ModalAlias, extraArgs: Record<string, unknown>) => void;
+  extraArgs: Record<string, unknown>;
+}
+
+export type Modals = Record<ModalAlias, FC<ModalProps>>;
