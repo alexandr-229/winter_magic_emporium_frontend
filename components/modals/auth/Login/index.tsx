@@ -5,10 +5,21 @@ import { Button } from '@/components/small/Button';
 import styles from './styles.module.css';
 import { authModalStore } from '../store';
 import { ModalAlias, ModalProps } from '../types';
+import { useLogin } from './useLogin';
 
 const { onCloseAuthModal } = authModalStore.getStore();
 
 export const Login = ({ openModal }: ModalProps) => {
+  const {
+    email,
+    password,
+    emailInputRef,
+    passwordInputRef,
+    setEmail,
+    onSubmit,
+    setPassword,
+  } = useLogin();
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.header}>
@@ -23,8 +34,21 @@ export const Login = ({ openModal }: ModalProps) => {
         />
       </div>
       <div className={styles.inputs}>
-        <Input placeholder="Enter your email" className={styles.input} />
-        <Input placeholder="Enter your password" className={styles.input} type="password" />
+        <Input
+          placeholder="Enter your email"
+          className={styles.input}
+          value={email}
+          onChange={(event) => setEmail(event.target.value)}
+          ref={emailInputRef}
+        />
+        <Input
+          placeholder="Enter your password"
+          className={styles.input}
+          type="password"
+          value={password}
+          onChange={(event) => setPassword(event.target.value)}
+          ref={passwordInputRef}
+        />
       </div>
       <p className={styles.smallText}>
         Don&apos;t have an account?
@@ -36,7 +60,7 @@ export const Login = ({ openModal }: ModalProps) => {
           Sign Up
         </span>
       </p>
-      <Button className={styles.button}>
+      <Button className={styles.button} onClick={onSubmit}>
         Continue
       </Button>
       <div className={styles.iconsWrapper}>
