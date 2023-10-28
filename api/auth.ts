@@ -11,3 +11,10 @@ export const login = async (email: string, password: string) => {
 
 	return data;
 };
+
+export const register = async (email: string, password: string, name: string, lastName: string, phone: string) => {
+	const body = { email, password, name, lastName, phone };
+	const { data } = await axios.post<TokenResponse>(url.account.auth.register, body);
+
+	return data;
+};

@@ -50,8 +50,8 @@ export const useLogin = () => {
   };
 
   const onSubmit = () => {
-    const filedValid = validate();
-    if (!filedValid) {
+    const fieldsValid = validate();
+    if (!fieldsValid) {
       return;
     }
 
