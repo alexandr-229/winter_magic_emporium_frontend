@@ -1,29 +1,30 @@
 import { Store } from '@/helpers/store';
-import { AuthModalStore } from './types';
+import { AuthModalStore, ModalAlias } from './types';
 
 export const authModalStore = new Store<AuthModalStore>((get, set) => ({
   open: false,
   dialog: null,
+  modal: ModalAlias.LOGIN,
 
   setDialog: (dialog: HTMLDialogElement) => {
     set({ dialog });
   },
-  onOpenAuthModal: () => {
+  onOpenAuthModal: (modal: ModalAlias = ModalAlias.LOGIN) => {
     const { dialog } = get();
 
     if (dialog) {
       dialog.showModal();
 
-      set({ open: true });
+      set({ open: true, modal });
     }
   },
   onCloseAuthModal: () => {
     const { dialog } = get();
 
-    set({ open: true });
-
     if (dialog) {
       dialog.close();
     }
+
+    set({ open: true });
   },
 }));

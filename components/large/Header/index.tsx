@@ -8,6 +8,7 @@ import { Button } from '@/components/small/Button';
 import { Search } from '@/components/small/Search';
 import { authModalStore } from '@/components/modals/auth/store';
 import { AuthModal } from '@/components/modals/auth';
+import { ModalAlias } from '@/components/modals/auth/types';
 import styles from './styles.module.css';
 import { Props } from './types';
 import CartIcon from './cart.svg';
@@ -66,7 +67,7 @@ export const Header = ({ className, ...props }: Props) => {
         <Search className={styles.search} />
         <AvatarIcon
           className={cn(styles.icon, styles.pointer, styles.iconHover)}
-          onClick={onOpenAuthModal}
+          onClick={() => onOpenAuthModal(ModalAlias.LOGIN)}
         />
         <div>
           <LikeIcon className={cn(styles.icon, styles.pointer, styles.iconHover)} />

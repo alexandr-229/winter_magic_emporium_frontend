@@ -24,3 +24,9 @@ export const activate = async (email: string, code: number) => {
 
 	return data;
 }
+
+export const googleOauth = async (code: string) => {
+	const { data } = await axios.get<TokenResponse>(url.account.auth.google, { params: { code } });
+
+	return data;
+}

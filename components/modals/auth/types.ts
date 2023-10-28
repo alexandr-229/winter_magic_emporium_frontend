@@ -9,10 +9,11 @@ export enum ModalAlias {
 
 export interface AuthModalStore {
   open: boolean;
+  modal: ModalAlias;
   dialog: HTMLDialogElement | null;
 
   setDialog: (dialog: HTMLDialogElement) => void;
-  onOpenAuthModal: () => void;
+  onOpenAuthModal: (modal: ModalAlias) => void;
   onCloseAuthModal: () => void;
 }
 

@@ -8,7 +8,7 @@ import { Registration } from './Registration';
 import { ActivationCode } from './ActivationCode';
 import { GoogleLoading } from './GoogleLoading';
 
-const { setDialog } = authModalStore.getStore();
+const { setDialog, modal } = authModalStore.getStore();
 
 const modals: Modals = {
   [ModalAlias.LOGIN]: Login,
@@ -19,7 +19,7 @@ const modals: Modals = {
 
 export const AuthModal = () => {
   const dialogRef = useRef<WrapperModalRef>(null);
-  const [activeModal, setActiveModal] = useState<ModalAlias>(ModalAlias.LOGIN);
+  const [activeModal, setActiveModal] = useState<ModalAlias>(modal);
   const [extraArgs, setExtraArgs] = useState<Record<string, unknown>>({});
 
   useEffect(() => {
@@ -28,6 +28,19 @@ export const AuthModal = () => {
     if (dialog) {
       setDialog(dialog);
     }
+  }, []);
+
+  useEffect(() => {
+    const id = new Date().getTime() + Math.random();
+
+    authModalStore.subscribe({
+      id,
+      handler: ({ modal }) => setActiveModal(modal),
+    });
+
+    return () => {
+      authModalStore.unsubscribe(id);
+    };
   }, []);
 
   const openModal = (modal: ModalAlias, extraArgs: Record<string, unknown>) => {

@@ -6,6 +6,7 @@ import styles from './styles.module.css';
 import { authModalStore } from '../store';
 import { ModalAlias, ModalProps } from '../types';
 import { useLogin } from './useLogin';
+import { googleOauth } from '../helpers';
 
 const { onCloseAuthModal } = authModalStore.getStore();
 
@@ -66,7 +67,7 @@ export const Login = ({ openModal }: ModalProps) => {
       <div className={styles.iconsWrapper}>
         <p className={styles.iconTitle}>or</p>
         <div className={styles.icons}>
-          <div className={styles.icon}>
+          <div className={styles.icon} onClick={googleOauth}>
             <Image
               src="/icons/google.svg"
               alt="google"

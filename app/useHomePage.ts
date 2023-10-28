@@ -1,8 +1,13 @@
 'use client';
 
+import { useEffect } from 'react';
 import axios from 'axios';
-import { useQuery } from 'react-query';
+import { useMutation, useQuery } from 'react-query';
+import { useSearchParams, useRouter, usePathname } from 'next/navigation';
 import { url } from '@/helpers/api';
+import { TokenResponse, googleOauth } from '@/api/auth';
+import { authModalStore } from '@/components/modals/auth/store';
+import { ModalAlias } from '@/components/modals/auth/types';
 import { GetProductsResponse, Product } from './types';
 
 const getPromotionalProducts = async () => {
@@ -25,7 +30,37 @@ const getNewProducts = async () => {
   return data;
 };
 
+const { onOpenAuthModal, onCloseAuthModal } = authModalStore.getStore();
+
 export const useHomePage = () => {
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
+  const router = useRouter();
+
+  const onSuccess = ({ accessToken }: TokenResponse) => {
+    localStorage.setItem('access_token', accessToken);
+  };
+
+  const onMutate = () => {
+    router.push(pathname);
+
+    onCloseAuthModal();
+  };
+
+  const { mutate } = useMutation(
+    (code: string) => googleOauth(code),
+    { onSuccess, onMutate },
+  );
+
+  useEffect(() => {
+    const googleCode = searchParams.get('code');
+
+    if (googleCode) {
+      onOpenAuthModal(ModalAlias.GOOGLE_LOADING);
+      mutate(googleCode);
+    }
+  }, []);
+
   const {
     data: promotionalProducts,
     isLoading: promotionalLoading,
