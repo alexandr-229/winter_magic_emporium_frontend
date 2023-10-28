@@ -1,14 +1,21 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import { Button } from '@/components/small/Button';
 import { CodeInput } from '@/components/small/CodeInput';
 import styles from './styles.module.css';
 import { authModalStore } from '../store';
+import { useActivationCode } from './useActivationCode';
+import { ModalProps } from '../types';
 
 const { onCloseAuthModal } = authModalStore.getStore();
 
-export const ActivationCode = () => {
-  const [code, setCode] = useState<string>('');
+export const ActivationCode = ({ extraArgs }: ModalProps) => {
+  const {
+    code,
+    setCode,
+    codeInputRef,
+    handleSubmit,
+  } = useActivationCode(extraArgs);
 
   return (
     <div className={styles.wrapper}>
@@ -24,9 +31,15 @@ export const ActivationCode = () => {
         />
       </div>
       <div className={styles.codeInputWrapper}>
-        <CodeInput code={code} setCode={setCode} codeLength={4} className={styles.codeInput} />
+        <CodeInput
+          code={code}
+          setCode={setCode}
+          codeLength={4}
+          className={styles.codeInput}
+          ref={codeInputRef}
+        />
       </div>
-      <Button className={styles.button}>
+      <Button className={styles.button} onClick={handleSubmit}>
         Continue
       </Button>
       <div className={styles.iconsWrapper}>

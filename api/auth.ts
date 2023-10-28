@@ -18,3 +18,9 @@ export const register = async (email: string, password: string, name: string, la
 
 	return data;
 };
+
+export const activate = async (email: string, code: number) => {
+	const { data } = await axios.post<TokenResponse>(url.account.auth.activate, { email, code });
+
+	return data;
+}
