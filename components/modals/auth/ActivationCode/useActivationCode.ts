@@ -7,14 +7,20 @@ import {
 import { useMutation } from 'react-query';
 import { TokenResponse, activate } from '@/api/auth';
 import { CodeInputRefData } from '@/components/small/CodeInput/types';
+import { userStore } from '@/store/user';
+import { useClearInputs } from '../hooks/useClearInputs';
 import { authModalStore } from '../store';
 
+const { getUser, setUser } = userStore.getStore();
 const { onCloseAuthModal } = authModalStore.getStore();
 
 export const useActivationCode = (extraArgs: Record<string, unknown>) => {
   const [code, setCode] = useState<string>('');
+  const [loading, setLoading] = useState<boolean>(false);
 
   const codeInputRef = useRef<CodeInputRefData>(null);
+
+  useClearInputs([setCode]);
 
   const email = useMemo(() => {
     const result = typeof extraArgs.email === 'string' ? extraArgs.email : '';
@@ -22,17 +28,23 @@ export const useActivationCode = (extraArgs: Record<string, unknown>) => {
     return result;
   }, [extraArgs]);
 
-  const onSuccess = ({ accessToken }: TokenResponse) => {
+  const onSuccess = async ({ accessToken }: TokenResponse) => {
     codeInputRef.current?.setError(false);
 
     localStorage.setItem('access_token', accessToken);
 
-    onCloseAuthModal();
+    const user = await getUser();
+    setUser(user);
 
-    // TODO GET ME
+    setLoading(false);
+
+    if (user) {
+      onCloseAuthModal();
+    }
   };
 
   const onError = () => {
+    setLoading(false);
     codeInputRef.current?.setError(true);
   };
 
@@ -52,11 +64,13 @@ export const useActivationCode = (extraArgs: Record<string, unknown>) => {
       return;
     }
 
+    setLoading(true);
     mutate();
   };
 
   return {
     code,
+    loading,
     setCode,
     codeInputRef,
     handleSubmit,

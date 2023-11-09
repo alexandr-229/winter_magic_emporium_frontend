@@ -25,6 +25,6 @@ export const authModalStore = new Store<AuthModalStore>((get, set) => ({
       dialog.close();
     }
 
-    set({ open: true });
+    set({ open: false });
   },
 }));

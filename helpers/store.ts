@@ -1,6 +1,22 @@
-interface Subscriber<T extends object> {
-	id: number | string;
-	handler: (store: T) => unknown;
+// interface Subscriber<T extends object> {
+// 	id: number | string;
+// 	handler: (store: T) => unknown;
+// }
+
+export class Subscriber<T> {
+	id: number;
+
+	constructor(
+		public readonly handler: (store: T) => unknown,
+	) {
+		this.id = this.generateId();
+	}
+
+	private generateId() {
+		const result = new Date().getTime() + Math.random();
+
+		return result;
+	}
 }
 
 export class Store<T extends object> {

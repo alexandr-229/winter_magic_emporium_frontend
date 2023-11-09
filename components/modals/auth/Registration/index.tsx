@@ -2,10 +2,12 @@ import React from 'react';
 import Image from 'next/image';
 import { Input } from '@/components/small/Input';
 import { Button } from '@/components/small/Button';
+import { Loader } from '@/components/small/Loader';
 import styles from './styles.module.css';
 import { authModalStore } from '../store';
 import { ModalAlias, ModalProps } from '../types';
 import { useRegistration } from './useRegistration';
+import { googleOauth } from '../helpers';
 
 const { onCloseAuthModal } = authModalStore.getStore();
 
@@ -16,6 +18,7 @@ export const Registration = ({ openModal }: ModalProps) => {
     phone,
     password,
     lastName,
+    loading,
     setName,
     onSubmit,
     setEmail,
@@ -91,12 +94,19 @@ export const Registration = ({ openModal }: ModalProps) => {
         </span>
       </p>
       <Button className={styles.button} onClick={onSubmit}>
-        Continue
+        {loading ? (
+          <Loader
+            size={14}
+            width={3}
+            color="black"
+            backgroundColor="transparent"
+          />
+        ) : 'Continue'}
       </Button>
       <div className={styles.iconsWrapper}>
         <p className={styles.iconTitle}>or</p>
         <div className={styles.icons}>
-          <div className={styles.icon}>
+          <div className={styles.icon} onClick={googleOauth}>
             <Image
               src="/icons/google.svg"
               alt="google"

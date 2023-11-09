@@ -23,3 +23,5 @@ export interface ModalProps {
 }
 
 export type Modals = Record<ModalAlias, FC<ModalProps>>;
+
+export type SetInput = (value: string) => void;

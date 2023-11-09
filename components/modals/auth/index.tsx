@@ -1,8 +1,9 @@
 import React, { useRef, useEffect, useState } from 'react';
+import { Subscriber } from '@/helpers/store';
 import { Wrapper } from '../Wrapper';
 import { authModalStore } from './store';
 import { WrapperModalRef } from '../Wrapper/types';
-import { ModalAlias, Modals } from './types';
+import { AuthModalStore, ModalAlias, Modals } from './types';
 import { Login } from './Login';
 import { Registration } from './Registration';
 import { ActivationCode } from './ActivationCode';
@@ -31,15 +32,13 @@ export const AuthModal = () => {
   }, []);
 
   useEffect(() => {
-    const id = new Date().getTime() + Math.random();
+    const handler = ({ modal }: AuthModalStore) => setActiveModal(modal);
+    const subscriber = new Subscriber(handler);
 
-    authModalStore.subscribe({
-      id,
-      handler: ({ modal }) => setActiveModal(modal),
-    });
+    authModalStore.subscribe(subscriber);
 
     return () => {
-      authModalStore.unsubscribe(id);
+      authModalStore.unsubscribe(subscriber.id);
     };
   }, []);
 

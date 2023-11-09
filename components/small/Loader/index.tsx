@@ -7,6 +7,8 @@ export const Loader = ({
   className,
   size,
   width,
+  color,
+  backgroundColor,
   ...props
 }: Props) => {
   return (
@@ -15,8 +17,12 @@ export const Loader = ({
       style={{
         width: size,
         height: size,
-        borderTopWidth: width || 5,
         borderWidth: width || 5,
+        borderTopWidth: `${width || 5}px !important`,
+        borderTopColor: color || '#FFD704',
+        borderLeftColor: backgroundColor || 'rgba(255, 255, 255, 0.3)',
+        borderRightColor: backgroundColor || 'rgba(255, 255, 255, 0.3)',
+        borderBottomColor: backgroundColor || 'rgba(255, 255, 255, 0.3)',
       }}
       {...props}
     />
