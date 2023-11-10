@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useQuery } from 'react-query';
 import { url } from '@/helpers/api';
 import { GetProductsResponse, Product } from './types';
+import { useGoogleAuth } from './useGoogleAuth';
 
 const getPromotionalProducts = async () => {
   const { data } = await axios.get<GetProductsResponse>(url.product.promotional, {
@@ -40,6 +41,8 @@ export const useHomePage = () => {
   } = useQuery('new', getNewProducts, {
     retry: 1,
   });
+
+  useGoogleAuth();
 
   return {
     newError,

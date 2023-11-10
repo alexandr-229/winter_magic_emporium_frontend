@@ -1,14 +1,21 @@
+'use client';
+
 import React from 'react';
 import cn from 'classnames';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/small/Button';
 import { Search } from '@/components/small/Search';
+import { authModalStore } from '@/components/modals/auth/store';
+import { AuthModal } from '@/components/modals/auth';
+import { ModalAlias } from '@/components/modals/auth/types';
 import styles from './styles.module.css';
 import { Props } from './types';
 import CartIcon from './cart.svg';
 import LikeIcon from './like.svg';
 import AvatarIcon from './avatar.svg';
+
+const { onOpenAuthModal } = authModalStore.getStore();
 
 export const Header = ({ className, ...props }: Props) => {
   const cartSize = 1;
@@ -58,7 +65,10 @@ export const Header = ({ className, ...props }: Props) => {
           <Button className={styles.button}>Catalog</Button>
         </Link>
         <Search className={styles.search} />
-        <AvatarIcon className={cn(styles.icon, styles.pointer, styles.iconHover)} />
+        <AvatarIcon
+          className={cn(styles.icon, styles.pointer, styles.iconHover)}
+          onClick={() => onOpenAuthModal(ModalAlias.LOGIN)}
+        />
         <div>
           <LikeIcon className={cn(styles.icon, styles.pointer, styles.iconHover)} />
         </div>
@@ -71,6 +81,7 @@ export const Header = ({ className, ...props }: Props) => {
           <CartIcon className={cn(styles.icon, styles.pointer, styles.iconHover)} />
         </div>
       </div>
+      <AuthModal />
     </>
   );
 };

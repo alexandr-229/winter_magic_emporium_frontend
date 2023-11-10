@@ -1,8 +1,6 @@
 .loader {
-	border-color: rgba(255, 255, 255, 0.3);
 	border-style: solid;
 	border-radius: 50%;
-	border-top-color: #FFD704;
 	border-top-style: solid;
 	animation: spin 1s linear infinite;
 }

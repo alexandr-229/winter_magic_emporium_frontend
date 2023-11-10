@@ -47,7 +47,9 @@
       "react/no-unknown-property": "off",
       "@next/next/no-img-element": "off",
       "no-underscore-dangle": "off",
-      "no-mixed-operators": "off"
+      "no-mixed-operators": "off",
+      "@typescript-eslint/no-use-before-define": "off",
+      "no-restricted-syntax": ["error", "WithStatement"]
   },
   "ignorePatterns": []
 }

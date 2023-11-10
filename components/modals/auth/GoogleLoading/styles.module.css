@@ -1,0 +1,14 @@
+.wrapper {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	padding: 10px;
+}
+
+.wrapper p {
+	margin: 0;
+}
+
+.loader {
+	margin-bottom: 20px;
+}

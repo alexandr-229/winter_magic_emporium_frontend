@@ -1,0 +1,53 @@
+.wrapper {
+	display: flex;
+	align-items: bottom;
+}
+
+.codeItem {
+	outline: none;
+	border: none;
+	border-bottom: 1.5px solid #FFD704;
+	width: 25px;
+	margin-right: 20px;
+	padding-bottom: 4px;
+	text-align: center;
+	position: relative;
+
+	color: #000;
+	font-family: Roboto;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 28px;
+	letter-spacing: 0.15px;
+}
+
+.codeItem:last-child {
+	margin-right: 0;
+}
+
+.codeItem.error {
+	border-bottom: 1.5px solid #FF3E1D;
+	animation: error 0.6s;
+}
+
+@keyframes error {
+	0% {
+		left: 0;
+	}
+	20% {
+		left: 4px;
+	}
+	40% {
+		left: -4px;
+	}
+	60% {
+		left: 4px;
+	}
+	80% {
+		left: -4px;
+	}
+	100% {
+		left: 0;
+	}
+}
