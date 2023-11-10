@@ -58,7 +58,7 @@ const Product = () => {
             discountPercent={product?.discounts || 0}
             totalQuantity={product?.quantity || 0}
             sizes={[`${product?.size.value || 1}${product?.size.unit || 'm'}`]}
-            description="Description Description Description"
+            description={product?.description}
             size={{
               height: `${product?.size.value || 1}${product?.size.unit || 'm'}`,
               width: `${product?.size.value || 1}${product?.size.unit || 'm'}`,

@@ -18,6 +18,7 @@ export interface Product {
   size: Size;
   createdAt: Date;
   updatedAt: Date;
+  description: string;
 }
 
 export interface Size {
