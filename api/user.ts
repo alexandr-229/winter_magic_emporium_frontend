@@ -14,3 +14,11 @@ export const getMe = async () => {
 	const { data } = await client.get<User>(url.account.user.getMe);
 	return data;
 };
+
+export const changeFavorite = async (productId: string, action: 'Add' | 'Delete') => {
+    const { data } = await client.post<{ message: 'OK' }>(url.account.user.changeFavorite, {
+        productId,
+        action,
+    });
+    return data;
+};

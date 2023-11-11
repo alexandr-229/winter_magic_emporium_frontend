@@ -12,6 +12,7 @@ import LikeIcon from './like.svg';
 
 export const Slider = ({
   photos,
+  productId,
   isFavorite,
   tag,
   className,
@@ -25,8 +26,9 @@ export const Slider = ({
     setActivePhoto,
     nextClickHandle,
     prevClickHandle,
+    handleFavoriteClick,
     getLeft,
-  } = useSlider(photos, tag);
+  } = useSlider(photos, tag, productId, isFavorite);
 
   return (
     <div
@@ -70,6 +72,7 @@ export const Slider = ({
         />
         <div className={styles.favoriteTag}>
           <LikeIcon
+            onClick={handleFavoriteClick}
             className={cn(styles.likeIcon, {
               [styles.favorite]: isFavorite,
             })}

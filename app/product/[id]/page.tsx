@@ -49,8 +49,9 @@ const Product = () => {
           <Slider
             className={styles.slider}
             photos={product?.photos || []}
-            isFavorite
+            isFavorite={product.isFavorite}
             tag={product?.tag || ProductTag.NotAvailable}
+            productId={product._id}
           />
           <ProductDescription
             className={styles.description}

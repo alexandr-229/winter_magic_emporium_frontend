@@ -22,6 +22,7 @@ export interface Product {
 	createdAt: Date;
 	updatedAt: Date;
 	description: string;
+	isFavorite: boolean;
 }
   
 export interface Size {
