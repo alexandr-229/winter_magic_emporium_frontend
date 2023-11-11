@@ -32,7 +32,7 @@ export const ProductList = ({
           <p className={styles.errorMessage}>Something went wrong</p>
         </div>
       )}
-      {products && products.map((product) => (
+      {products.length && !error && !loading && products?.map?.((product) => (
         <Card
           id={product._id}
           className={styles.cardItem}
@@ -44,6 +44,18 @@ export const ProductList = ({
           isFavorite={false}
         />
       ))}
+      {!products.length && !error && !loading && (
+        <div className={styles.loaderWrapper}>
+          <Image
+            className={styles.errorIcon}
+            src="/icons/warning.svg"
+            alt="error"
+            width={30}
+            height={30}
+          />
+          <p className={styles.warningMessage}>No data</p>
+        </div>
+      )}
     </div>
   );
 };

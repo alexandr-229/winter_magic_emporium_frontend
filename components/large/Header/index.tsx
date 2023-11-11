@@ -54,13 +54,15 @@ export const Header = ({ className, ...props }: Props) => {
         </div>
       </header>
       <div className={cn(styles.block, styles.bottomContent)}>
-        <Image
-          className={styles.logo}
-          src="/icons/logo.svg"
-          alt="logo"
-          width={58}
-          height={58}
-        />
+        <Link href="/">
+          <Image
+            className={styles.logo}
+            src="/icons/logo.svg"
+            alt="logo"
+            width={58}
+            height={58}
+          />
+        </Link>
         <Link href="/catalog">
           <Button className={styles.button}>Catalog</Button>
         </Link>

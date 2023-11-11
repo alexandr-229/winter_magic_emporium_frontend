@@ -41,6 +41,11 @@
 	font-size: 30px;
 }
 
+.warningMessage {
+	color: #FFD704;
+	font-size: 30px;
+}
+
 .cardItem {
 	margin-right: 20px;
 }
