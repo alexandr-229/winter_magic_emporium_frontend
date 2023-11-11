@@ -4,7 +4,7 @@ import {
   useRef,
   useMemo,
 } from 'react';
-import { useMutation } from 'react-query';
+import { useMutation, useQueryClient } from 'react-query';
 import { TokenResponse, activate } from '@/api/auth';
 import { CodeInputRefData } from '@/components/small/CodeInput/types';
 import { userStore } from '@/store/user';
@@ -17,6 +17,8 @@ const { onCloseAuthModal } = authModalStore.getStore();
 export const useActivationCode = (extraArgs: Record<string, unknown>) => {
   const [code, setCode] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
+
+  const queryClient = useQueryClient();
 
   const codeInputRef = useRef<CodeInputRefData>(null);
 
@@ -40,6 +42,8 @@ export const useActivationCode = (extraArgs: Record<string, unknown>) => {
 
     if (user) {
       onCloseAuthModal();
+
+      queryClient.invalidateQueries();
     }
   };
 

@@ -4,7 +4,7 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { ModalAlias } from '@/components/modals/auth/types';
 import { TokenResponse, googleOauth } from '@/api/auth';
 import { userStore } from '@/store/user';
-import { useMutation } from 'react-query';
+import { useMutation, useQueryClient } from 'react-query';
 
 const { onOpenAuthModal, onCloseAuthModal } = authModalStore.getStore();
 const { setUser, getUser } = userStore.getStore();
@@ -14,6 +14,8 @@ export const useGoogleAuth = () => {
   const pathname = usePathname();
   const router = useRouter();
 
+  const queryClient = useQueryClient();
+
   const onSuccess = async ({ accessToken }: TokenResponse) => {
     localStorage.setItem('access_token', accessToken);
 
@@ -21,6 +23,8 @@ export const useGoogleAuth = () => {
 
     setUser(user);
     onCloseAuthModal();
+
+    queryClient.invalidateQueries();
   };
 
   const onMutate = () => {

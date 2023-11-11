@@ -8,6 +8,7 @@ export enum ProductTag {
 }
 
 export interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+  productId: string;
   photos: string[];
   isFavorite: boolean;
   tag: ProductTag;

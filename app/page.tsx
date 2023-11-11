@@ -75,7 +75,7 @@ export default function Home() {
                 title={product.title}
                 description={`${product.title} ${product.size.value} ${product.size.unit}`}
                 price={product.price}
-                isFavorite={false}
+                isFavorite={product.isFavorite}
               />
             ))}
           </div>
@@ -125,7 +125,7 @@ export default function Home() {
                 title={product.title}
                 description={`${product.title} ${product.size.value} ${product.size.unit}`}
                 price={product.price}
-                isFavorite={false}
+                isFavorite={product.isFavorite}
               />
             ))}
           </div>

@@ -1,5 +1,5 @@
+import { Product } from '@/api/product';
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
-import { Product } from '@/app/types';
 
 export interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   loading: boolean;

@@ -2,7 +2,7 @@
 
 import { useParams } from 'next/navigation';
 import { useQuery } from 'react-query';
-import { getProduct, getSimilarProducts, getPopularProducts } from './client';
+import { getProduct, getSimilarProducts, getPopularProducts } from '@/api/product';
 
 export const useProduct = () => {
   const { id } = useParams();

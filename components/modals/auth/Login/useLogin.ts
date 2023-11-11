@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { useMutation } from 'react-query';
+import { useMutation, useQueryClient } from 'react-query';
 import { InputRefData } from '@/components/small/Input/types';
 import { userStore } from '@/store/user';
 import { TokenResponse, login } from '@/api/auth';
@@ -14,6 +14,8 @@ export const useLogin = () => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
+
+  const queryClient = useQueryClient();
 
   useClearInputs([setEmail, setPassword]);
 
@@ -39,6 +41,8 @@ export const useLogin = () => {
 
     setLoading(false);
     onCloseAuthModal();
+
+    queryClient.invalidateQueries();
   };
 
   const onError = () => {

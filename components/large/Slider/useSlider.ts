@@ -1,11 +1,28 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { useMutation, useQueryClient } from 'react-query';
+import { changeFavorite } from '@/api/user';
 import { tagsData } from './data';
 import { ProductTag } from './types';
 
-export const useSlider = (photos: string[], tag: ProductTag) => {
+export const useSlider = (
+  photos: string[],
+  tag: ProductTag,
+  productId: string,
+  isFavorite: boolean,
+) => {
   const [activePhoto, setActivePhoto] = useState<number>(0);
+  const queryClient = useQueryClient();
+
+  const onSuccess = () => {
+    queryClient.invalidateQueries([productId]);
+  };
+
+  const { mutate } = useMutation(
+    (action: 'Add' | 'Delete') => changeFavorite(productId, action),
+    { onSuccess },
+  );
 
   const showLeftArrow = photos.length > 1 && activePhoto > 0;
   const showRightArrow = photos.length > 1 && activePhoto < photos.length - 1;
@@ -41,6 +58,11 @@ export const useSlider = (photos: string[], tag: ProductTag) => {
     return index * 550;
   };
 
+  const handleFavoriteClick = () => {
+    const action = isFavorite ? 'Delete' : 'Add';
+    mutate(action);
+  };
+
   return {
     tagInfo,
     activePhoto,
@@ -49,6 +71,7 @@ export const useSlider = (photos: string[], tag: ProductTag) => {
     setActivePhoto,
     nextClickHandle,
     prevClickHandle,
+    handleFavoriteClick,
     getLeft,
   };
 };
