@@ -1,0 +1,49 @@
+.page {
+	width: 70%;
+	margin: 0 auto;
+	display: grid;
+	padding: 50px 0 100px 0;
+
+	grid-template-areas:
+		"title ."
+		"tabs answerTitle"
+		"tabs answerText";
+}
+
+.text {
+	color: #FFF;
+	font-family: Montserrat;
+	font-style: normal;
+	margin: 0;
+}
+
+.title {
+	font-size: 29px;
+	font-weight: 700;
+	line-height: normal;
+	grid-area: title;
+	margin-bottom: 35px;
+}
+
+.answerTitle {
+	font-size: 23px;
+	font-weight: 400;
+	line-height: 128.906%;
+	grid-area: answerTitle;
+	margin-bottom: 28px;
+}
+
+.answerText {
+	font-size: 15px;
+	font-weight: 400;
+	line-height: 128.906%;
+	grid-area: answerText;
+}
+
+.tabs {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	grid-area: tabs;
+	margin-right: 80px;
+}
