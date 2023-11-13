@@ -36,7 +36,7 @@ export const Header = ({ className, ...props }: Props) => {
           </div>
           <div className={cn(styles.block, styles.menu)}>
             <Link href="/contacts" className={styles.text}>Contacts</Link>
-            <Link href="/question" className={styles.text}>Questions</Link>
+            <Link href="/questions" className={styles.text}>Questions</Link>
           </div>
           <div className={styles.block}>
             <Image

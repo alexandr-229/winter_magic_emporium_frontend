@@ -1,0 +1,17 @@
+.tab {
+	width: 230px !important;
+	padding: 30px !important;
+	display: flex;
+	align-items: center;
+	justify-content: left;
+	background-color: white !important;
+}
+
+.tab:hover {
+	background-color: rgb(231, 229, 229) !important;
+}
+
+.tab.active {
+	background: #FFD704 !important;
+	cursor: default;
+}
