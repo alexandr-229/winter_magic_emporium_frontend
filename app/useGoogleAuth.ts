@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
-import { authModalStore } from '@/components/modals/auth/store';
+import { useAuthModal } from '@/components/modals/auth/store';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { ModalAlias } from '@/components/modals/auth/types';
 import { TokenResponse, googleOauth } from '@/api/auth';
-import { userStore } from '@/store/user';
+import { useUser } from '@/store/user';
 import { useMutation, useQueryClient } from 'react-query';
 
-const { onOpenAuthModal, onCloseAuthModal } = authModalStore.getStore();
-const { setUser, getUser } = userStore.getStore();
+const { onOpenAuthModal, onCloseAuthModal } = useAuthModal.getStore();
+const { setUser, getUser } = useUser.getStore();
 
 export const useGoogleAuth = () => {
   const searchParams = useSearchParams();

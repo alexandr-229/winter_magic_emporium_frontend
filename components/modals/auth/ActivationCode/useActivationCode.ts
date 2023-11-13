@@ -7,12 +7,12 @@ import {
 import { useMutation, useQueryClient } from 'react-query';
 import { TokenResponse, activate } from '@/api/auth';
 import { CodeInputRefData } from '@/components/small/CodeInput/types';
-import { userStore } from '@/store/user';
+import { useUser } from '@/store/user';
 import { useClearInputs } from '../hooks/useClearInputs';
-import { authModalStore } from '../store';
+import { useAuthModal } from '../store';
 
-const { getUser, setUser } = userStore.getStore();
-const { onCloseAuthModal } = authModalStore.getStore();
+const { getUser, setUser } = useUser.getStore();
+const { onCloseAuthModal } = useAuthModal.getStore();
 
 export const useActivationCode = (extraArgs: Record<string, unknown>) => {
   const [code, setCode] = useState<string>('');

@@ -6,7 +6,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/small/Button';
 import { Search } from '@/components/small/Search';
-import { authModalStore } from '@/components/modals/auth/store';
+import { useAuthModal } from '@/components/modals/auth/store';
 import { AuthModal } from '@/components/modals/auth';
 import { ModalAlias } from '@/components/modals/auth/types';
 import styles from './styles.module.css';
@@ -15,7 +15,7 @@ import CartIcon from './cart.svg';
 import LikeIcon from './like.svg';
 import AvatarIcon from './avatar.svg';
 
-const { onOpenAuthModal } = authModalStore.getStore();
+const { onOpenAuthModal } = useAuthModal.getStore();
 
 export const Header = ({ className, ...props }: Props) => {
   const cartSize = 1;

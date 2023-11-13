@@ -1,61 +1,47 @@
-// interface Subscriber<T extends object> {
-// 	id: number | string;
-// 	handler: (store: T) => unknown;
-// }
+import { useSyncExternalStore } from 'react';
 
-export class Subscriber<T> {
-	id: number;
+export const createStore = <T>(create: (get: () => T, set: (partial: Partial<T>) => void) => T) => {
+	let store: T;
+	const subscribers: Set<() => void> = new Set();
 
-	constructor(
-		public readonly handler: (store: T) => unknown,
-	) {
-		this.id = this.generateId();
-	}
+	const api = {
+		getStore: () => {
+			return store;
+		},
+		setStore: (partial: Partial<T>) => {
+			store = {
+				...store,
+				...partial,
+			};
 
-	private generateId() {
-		const result = new Date().getTime() + Math.random();
+			subscribers.forEach((subscriber) => subscriber());
+		},
+		subscribe: (subscriber: () => void) => {
+			subscribers.add(subscriber);
 
-		return result;
-	}
-}
+			return () => {
+				subscribers.delete(subscriber);
+			};
+		},
+	};
 
-export class Store<T extends object> {
-	private store: T;
-	private subscribers: Subscriber<T>[] = [];
+	store = create(api.getStore, api.setStore);
 
-	constructor(
-		createStore: (get: () => T, set: (store: Partial<T>) => void) => T,
-	) {
-		this.store = createStore(this.getStore.bind(this), this.setStore.bind(this));
-	}
+	const result = () => {
+		const value = useSyncExternalStore(
+			api.subscribe,
+			api.getStore,
+			api.getStore,
+		);
 
-	public getStore() {
-		if (!this.store) {
-			return {} as T;
-		}
-		return this.store;
-	}
+		return value;
+	};
 
-	public setStore(store: Partial<T>) {
-		this.store = {
-			...this.store,
-			...store,
-		};
+	Object.assign(result, api);
 
-		for (const subscriber of this.subscribers) {
-			subscriber.handler(this.store);
-		}
-	}
-
-	public subscribe(subscriber: Subscriber<T>) {
-		const existsSubscriber = this.subscribers.find(({ id }) => id === subscriber.id);
-
-		if (!existsSubscriber) {
-			this.subscribers.push(subscriber);
-		}
-	}
-
-	public unsubscribe(id: string | number) {
-		this.subscribers = this.subscribers.filter((subscriber) => subscriber.id !== id);
-	}
-}
+	return result as {
+		(): T,
+		getStore: () => T,
+		setStore: (partial: Partial<T>) => void,
+	};
+};

@@ -1,5 +1,5 @@
 import { User, getMe } from '@/api/user';
-import { Store } from '@/helpers/store';
+import { createStore } from '@/helpers/store';
 
 interface UserStore {
 	user: User | null;
@@ -8,7 +8,7 @@ interface UserStore {
 	getUser: () => Promise<User | null>;
 }
 
-export const userStore = new Store<UserStore>((_, set) => ({
+export const useUser = createStore<UserStore>((_, set) => ({
 	user: null,
 	setUser: (user: User | null) => {
 		set({ user });

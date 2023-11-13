@@ -4,12 +4,12 @@ import { Input } from '@/components/small/Input';
 import { Button } from '@/components/small/Button';
 import { Loader } from '@/components/small/Loader';
 import styles from './styles.module.css';
-import { authModalStore } from '../store';
+import { useAuthModal } from '../store';
 import { ModalAlias, ModalProps } from '../types';
 import { useLogin } from './useLogin';
 import { googleOauth } from '../helpers';
 
-const { onCloseAuthModal } = authModalStore.getStore();
+const { onCloseAuthModal } = useAuthModal.getStore();
 
 export const Login = ({ openModal }: ModalProps) => {
   const {

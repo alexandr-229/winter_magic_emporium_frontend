@@ -1,14 +1,14 @@
 import { useEffect, useRef, useState } from 'react';
 import { useMutation, useQueryClient } from 'react-query';
 import { InputRefData } from '@/components/small/Input/types';
-import { userStore } from '@/store/user';
+import { useUser } from '@/store/user';
 import { TokenResponse, login } from '@/api/auth';
 import { validateEmail } from '../helpers';
-import { authModalStore } from '../store';
+import { useAuthModal } from '../store';
 import { useClearInputs } from '../hooks/useClearInputs';
 
-const { onCloseAuthModal } = authModalStore.getStore();
-const { setUser, getUser } = userStore.getStore();
+const { onCloseAuthModal } = useAuthModal.getStore();
+const { setUser, getUser } = useUser.getStore();
 
 export const useLogin = () => {
   const [email, setEmail] = useState<string>('');
