@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { CartItem } from '@/components/large/CartItem';
+import { PurchaseDescription } from '@/components/large/PurchaseDescription';
 
 const Cart = () => {
   const [quantity, setQuantity] = useState(0);
@@ -16,6 +17,14 @@ const Cart = () => {
         quantity={quantity}
         title="Title 1234"
         price={100}
+      />
+      <PurchaseDescription
+        totalProducts={20}
+        totalPrice={1000}
+        discount={{
+          sum: 300,
+          percent: 30,
+        }}
       />
     </div>
   );
