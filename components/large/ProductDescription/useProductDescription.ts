@@ -8,17 +8,12 @@ export const useProductDescription = (sizes: string[], totalQuantity: number) =>
   const [activeSize, setActiveSize] = useState(sizes[0]);
   const [quantity, setQuantity] = useState(1);
 
-  const incrementQuantity = () => (quantity < totalQuantity ? setQuantity(quantity + 1) : null);
-
-  const decrementQuantity = () => (quantity > 1 ? setQuantity(quantity - 1) : null);
-
   return {
     quantity,
     activeSize,
     activeDescription,
+    setQuantity,
     setActiveSize,
-    decrementQuantity,
-    incrementQuantity,
     setActiveDescription,
   };
 };

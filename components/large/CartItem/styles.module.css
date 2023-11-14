@@ -1,0 +1,84 @@
+.wrapper {
+	width: 950px;
+	height: 180px;
+	border-radius: 15px;
+	background: #222;
+
+	overflow: hidden;
+	display: grid;
+	position: relative;
+	grid-template-columns: 30% 150px auto 200px;
+	column-gap: 20px;
+	grid-template-areas:
+		"photo title title title"
+		"photo description description ."
+		"photo quantityEditor . price";
+}
+
+.close {
+	position: absolute;
+	cursor: pointer;
+	right: 20px;
+	top: 20px;
+}
+
+.photoWrapper {
+	grid-area: photo;
+	height: 100%;
+	width: 90%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.photo {
+	height: 180px;
+	max-width: 100%;
+	object-fit: contain;
+}
+
+.text {
+	color: #FFF;
+	font-family: Roboto;
+	font-style: normal;
+	line-height: normal;
+}
+
+.title {
+	grid-area: title;
+}
+
+.title,
+.bold {
+	font-size: 18px;
+	font-weight: 500;
+}
+
+.descriptionWrapper {
+	grid-area: description;
+	display: flex;
+	gap: 20px;
+}
+
+.description {
+	color: #B5B5B5;
+	font-size: 16px;
+	font-weight: 400;
+}
+
+.bold {
+	color: #FFF;
+}
+
+.quantityEditor {
+	grid-area: quantityEditor;
+}
+
+.price {
+	font-size: 18px;
+	font-weight: 700;
+	line-height: 128.906%;
+	justify-self: right;
+	margin-right: 20px;
+	grid-area: price;
+}
