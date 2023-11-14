@@ -12,7 +12,7 @@ export const PurchaseDescription = ({
   discount,
 }: Props) => {
   return (
-    <>
+    <div>
       <div className={styles.wrapper}>
         <div className={styles.header}>
           <p className={styles.boldText}>Total price:</p>
@@ -35,6 +35,6 @@ export const PurchaseDescription = ({
           Checkout
         </Button>
       </div>
-    </>
+    </div>
   );
 };
