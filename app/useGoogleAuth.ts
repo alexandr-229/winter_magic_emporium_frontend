@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useAuthModal } from '@/components/modals/auth/store';
+import { useAuthModal } from '@/store/auth-modal';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { ModalAlias } from '@/components/modals/auth/types';
 import { TokenResponse, googleOauth } from '@/api/auth';

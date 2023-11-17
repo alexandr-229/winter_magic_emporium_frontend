@@ -1,5 +1,5 @@
 import { createStore } from '@/helpers/store';
-import { AuthModalState, ModalAlias } from './types';
+import { AuthModalState, ModalAlias } from '../components/modals/auth/types';
 
 export const useAuthModal = createStore<AuthModalState>((get, set) => ({
   open: false,

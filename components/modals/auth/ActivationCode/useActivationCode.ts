@@ -9,7 +9,7 @@ import { TokenResponse, activate } from '@/api/auth';
 import { CodeInputRefData } from '@/components/small/CodeInput/types';
 import { useUser } from '@/store/user';
 import { useClearInputs } from '../hooks/useClearInputs';
-import { useAuthModal } from '../store';
+import { useAuthModal } from '../../../../store/auth-modal';
 
 const { getUser, setUser } = useUser.getStore();
 const { onCloseAuthModal } = useAuthModal.getStore();

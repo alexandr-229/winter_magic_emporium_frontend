@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { Wrapper } from '../Wrapper';
-import { useAuthModal } from './store';
+import { useAuthModal } from '../../../store/auth-modal';
 import { WrapperModalRef } from '../Wrapper/types';
 import { ModalAlias, Modals } from './types';
 import { Login } from './Login';

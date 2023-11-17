@@ -6,7 +6,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/small/Button';
 import { Search } from '@/components/small/Search';
-import { useAuthModal } from '@/components/modals/auth/store';
+import { useAuthModal } from '@/store/auth-modal';
 import { AuthModal } from '@/components/modals/auth';
 import { ModalAlias } from '@/components/modals/auth/types';
 import styles from './styles.module.css';

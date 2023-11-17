@@ -1,7 +1,7 @@
 import { createStore } from '@/helpers/store';
 import { getCart } from '@/api/cart';
 import { Product } from '@/api/product';
-import { ProductData, CartState } from './types';
+import { ProductData, CartState } from '../app/cart/types';
 
 export const useCart = createStore<CartState>((get, set) => ({
   productsData: {},
@@ -46,9 +46,9 @@ export const useCart = createStore<CartState>((get, set) => ({
       return;
     }
 
-    productsData[productId].quantity--;
+    productsData[productId].quantity -= quantity;
 
-    if (!productsData[productId].quantity) {
+    if (productsData[productId].quantity < 1) {
       delete productsData[productId];
     }
 

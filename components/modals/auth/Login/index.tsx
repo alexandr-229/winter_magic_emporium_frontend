@@ -4,7 +4,7 @@ import { Input } from '@/components/small/Input';
 import { Button } from '@/components/small/Button';
 import { Loader } from '@/components/small/Loader';
 import styles from './styles.module.css';
-import { useAuthModal } from '../store';
+import { useAuthModal } from '../../../../store/auth-modal';
 import { ModalAlias, ModalProps } from '../types';
 import { useLogin } from './useLogin';
 import { googleOauth } from '../helpers';

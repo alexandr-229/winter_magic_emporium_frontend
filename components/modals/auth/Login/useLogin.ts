@@ -4,7 +4,7 @@ import { InputRefData } from '@/components/small/Input/types';
 import { useUser } from '@/store/user';
 import { TokenResponse, login } from '@/api/auth';
 import { validateEmail } from '../helpers';
-import { useAuthModal } from '../store';
+import { useAuthModal } from '../../../../store/auth-modal';
 import { useClearInputs } from '../hooks/useClearInputs';
 
 const { onCloseAuthModal } = useAuthModal.getStore();
