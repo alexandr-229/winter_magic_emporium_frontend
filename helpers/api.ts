@@ -18,5 +18,11 @@ export const url = {
 			getMe: `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/user/me`,
 			changeFavorite: `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/user/favorites`,
 		}
+	},
+	cart: {
+		getCart: `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/cart/`,
+		addProduct: `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/cart/product/`,
+		deleteProduct: (id: string) => `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/cart/${id}/`,
+		editQuantity: (id: string) => `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/cart/${id}/`,
 	}
 };
