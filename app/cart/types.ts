@@ -6,6 +6,15 @@ export interface ProductData {
   discountPercent: number;
 }
 
+export interface PurchaseData {
+  totalProducts: number;
+  totalPrice: number;
+  discount: {
+    sum: number;
+    percent: number;
+  };
+}
+
 export interface CartState {
   productsData: Record<string, ProductData>;
 

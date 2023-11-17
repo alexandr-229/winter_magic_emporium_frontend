@@ -17,8 +17,8 @@ export const PurchaseDescription = ({
         <div className={styles.header}>
           <p className={styles.boldText}>Total price:</p>
           <p className={styles.price}>{getDollarPrice(totalPrice)}</p>
-          <p className={styles.discount}>{getDollarPrice(discount.sum)}</p>
-          <Tag className={styles.discountTag} color="#FF2727" height={28}>{`-${discount.percent}%`}</Tag>
+          {!!discount.sum && <p className={styles.discount}>{getDollarPrice(discount.sum)}</p>}
+          {!!discount.sum && <Tag className={styles.discountTag} color="#FF2727" height={28}>{`-${discount.percent}%`}</Tag>}
         </div>
         <p className={styles.subtitle}>Your order</p>
         <div className={styles.rowInfo}>
@@ -30,11 +30,13 @@ export const PurchaseDescription = ({
           <p className={styles.boldText}>{getDollarPrice(totalPrice)}</p>
         </div>
       </div>
-      <div className={styles.footer}>
-        <Button className={styles.button}>
-          Checkout
-        </Button>
-      </div>
+      {!!totalProducts && (
+        <div className={styles.footer}>
+          <Button className={styles.button}>
+            Checkout
+          </Button>
+        </div>
+      )}
     </div>
   );
 };

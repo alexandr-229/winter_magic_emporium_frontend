@@ -5,9 +5,11 @@ import React, { useState } from 'react';
 import { CartItem } from '@/components/large/CartItem';
 import { PurchaseDescription } from '@/components/large/PurchaseDescription';
 import styles from './styles.module.css';
+import { useCartPage } from './useCartPage';
 
 const Cart = () => {
   const [quantity, setQuantity] = useState(0);
+  const { purchaseData } = useCartPage();
 
   return (
     <div className={styles.page}>
@@ -49,12 +51,9 @@ const Cart = () => {
           />
         </div>
         <PurchaseDescription
-          totalProducts={20}
-          totalPrice={1000}
-          discount={{
-            sum: 300,
-            percent: 30,
-          }}
+          totalProducts={purchaseData.totalProducts}
+          totalPrice={purchaseData.totalPrice}
+          discount={purchaseData.discount}
         />
       </main>
     </div>
