@@ -5,7 +5,7 @@ import { useUser } from '@/store/user';
 import { useCart } from '@/store/cart';
 import { Logger } from '@/helpers/logger';
 
-const { getUser } = useUser.getStore();
+const { getUser, setUser } = useUser.getStore();
 const { getCart } = useCart.getStore();
 
 export const InitProvider = ({ children }: { children: ReactNode }) => {
@@ -15,7 +15,9 @@ export const InitProvider = ({ children }: { children: ReactNode }) => {
 
   const init = async () => {
     try {
-      await getUser();
+      const user = await getUser();
+      setUser(user);
+
       await getCart();
     } catch (e) {
       Logger.error('Filed to fetch initial application data', { module: 'NextJS Application' });
