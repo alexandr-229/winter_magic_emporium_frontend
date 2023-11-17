@@ -1,4 +1,5 @@
 import { User, getMe } from '@/api/user';
+import { Logger } from '@/helpers/logger';
 import { createStore } from '@/helpers/store';
 
 interface UserStore {
@@ -18,8 +19,8 @@ export const useUser = createStore<UserStore>((_, set) => ({
 			const response = await getMe();
 			return response;
 		} catch (e) {
-			console.log('Failed to fetch user');
-			console.log(e);
+			Logger.error('Failed to fetch user', { module: 'User store' })
+			Logger.error(e, { module: 'User store' })
 			return null;
 		}
 	},
