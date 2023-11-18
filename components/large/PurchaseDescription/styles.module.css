@@ -15,8 +15,9 @@
 .header {
 	display: grid;
 	grid-template-columns: auto auto auto 1fr;
-	align-content: center;
+	align-items: center;
 	justify-content: left;
+	container-type: inline-size;
 	margin-bottom: 22px;
 }
 
@@ -27,6 +28,7 @@
 	font-style: normal;
 	font-weight: 700;
 	line-height: 128.906%;
+	white-space: nowrap;
 }
 
 .price {
@@ -37,7 +39,9 @@
 	font-style: normal;
 	font-weight: 700;
 	line-height: 128.906%;
-	margin: 0 8px 0 11px !important;
+	margin: 4px 2cqw 0 2.5cqw !important;
+	white-space: nowrap;
+	font-size: 6cqw;
 }
 
 .discount {
@@ -47,12 +51,15 @@
 	font-style: normal;
 	font-weight: 400;
 	line-height: normal;
-	margin-top: 4px !important;
+	margin-top: 3px !important;
 	text-decoration-line: line-through;
+	white-space: nowrap;
+	font-size: 5cqw;
 }
 
 .discountTag {
 	border-radius: 5px;
+	padding: 0 2.5cqw !important;
 	justify-self: right;
 	color: #FFF;
 	text-align: center;

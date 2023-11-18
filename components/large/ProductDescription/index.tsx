@@ -16,6 +16,7 @@ import DescriptionIcon from './description.svg';
 import CharacteristicsIcon from './characteristics.svg';
 
 export const ProductDescription = ({
+  onAddToCart,
   className,
   pricePerItem,
   discountPercent,
@@ -32,7 +33,7 @@ export const ProductDescription = ({
     setQuantity,
     setActiveSize,
     setActiveDescription,
-  } = useProductDescription(sizes, totalQuantity);
+  } = useProductDescription(sizes);
 
   return (
     <div className={cn(styles.wrapper, className)} {...props}>
@@ -89,7 +90,7 @@ export const ProductDescription = ({
       <div className={styles.quantityBlock}>
         <p className={cn(styles.text, styles.blockTitle)}>Select quantity</p>
         <QuantityEditor quantity={quantity} setQuantity={setQuantity} minmax={[1, totalQuantity]} className={styles.selectQuantity} />
-        <Button className={styles.cartButton}>
+        <Button className={styles.cartButton} onClick={() => onAddToCart(quantity)}>
           <p className={styles.text}>To cart</p>
           <CartIcon className={styles.cartIcon} />
         </Button>

@@ -43,11 +43,11 @@ export const Header = ({ className, ...props }: Props) => {
     router.push('/cart');
   };
 
-  const cartSize = useMemo(() => {
+  const cartSize = (() => {
     const result = Object.values(productsData).reduce((acc, product) => acc + product.quantity, 0);
 
     return result;
-  }, [productsData]);
+  })();
 
   return (
     <>

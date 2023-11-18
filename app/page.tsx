@@ -3,12 +3,15 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+
 import { Card } from '@/components/large/Card';
 import { Tag } from '@/components/small/Tag';
 import { Banner } from '@/components/large/Banner';
 import { Category } from '@/components/large/Category';
 import { CategoryEnum } from '@/components/large/Category/types';
 import { Loader } from '@/components/small/Loader';
+import { useCart } from '@/store/cart';
+
 import styles from './page.module.css';
 import { useHomePage } from './useHomePage';
 
@@ -21,6 +24,7 @@ export default function Home() {
     promotionalLoading,
     promotionalProducts,
   } = useHomePage();
+  const { addProduct } = useCart();
 
   return (
     <main>
@@ -76,6 +80,7 @@ export default function Home() {
                 description={`${product.title} ${product.size.value} ${product.size.unit}`}
                 price={product.price}
                 isFavorite={product.isFavorite}
+                onAddToCart={() => addProduct(product, 1)}
               />
             ))}
           </div>
@@ -126,6 +131,7 @@ export default function Home() {
                 description={`${product.title} ${product.size.value} ${product.size.unit}`}
                 price={product.price}
                 isFavorite={product.isFavorite}
+                onAddToCart={() => addProduct(product, 1)}
               />
             ))}
           </div>

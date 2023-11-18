@@ -7,10 +7,11 @@ export const useCartPage = () => {
 
   const purchaseData = useMemo(() => {
     const result = Object.values(productsData).reduce<PurchaseData>((acc, productItem) => {
+      const discountSum = productItem.price * productItem.discountPercent / 100;
+
       acc.totalProducts += productItem.quantity;
       acc.totalPrice += productItem.quantity * productItem.price;
-      acc.discount.sum += productItem.quantity * (productItem.price * productItem.discountPercent / 100);
-      acc.discount.percent = acc.discount.sum / (acc.discount.sum + acc.totalPrice);
+      acc.discount.sum += productItem.quantity * (discountSum + productItem.price);
 
       return acc;
     }, {
@@ -21,6 +22,8 @@ export const useCartPage = () => {
         percent: 0,
       },
     });
+
+    result.discount.percent = Math.max((result.discount.sum * 100 / result.totalPrice) - 100, 0);
 
     return result;
   }, [productsData]);

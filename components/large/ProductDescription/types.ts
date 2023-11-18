@@ -12,6 +12,7 @@ export interface Size {
 }
 
 export interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+  onAddToCart: (quantity: number) => void;
   pricePerItem: number;
   discountPercent?: number;
   totalQuantity: number;

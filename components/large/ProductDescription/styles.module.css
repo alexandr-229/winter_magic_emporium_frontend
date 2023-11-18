@@ -86,14 +86,14 @@
 }
 
 .sizeItem {
-	cursor: pointer;
-	transition: 0.15s all;
-	display: inline-block;
-	padding: 6px 10px;
-	border-radius: 10px;
+	cursor: pointer !important;
+	transition: 0.15s all !important;
+	display: inline-block !important;
+	padding: 6px 10px !important;
+	border-radius: 10px !important;
 	width: auto !important;
 	height: auto !important;
-	margin-right: 12px;
+	margin-right: 12px !important;
 }
 
 .sizeItem:last-child {

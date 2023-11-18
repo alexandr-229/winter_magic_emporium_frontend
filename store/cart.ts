@@ -1,5 +1,5 @@
 import { createStore } from '@/helpers/store';
-import { getCart } from '@/api/cart';
+import { addProduct, deleteProduct, editQuantity, getCart } from '@/api/cart';
 import { Product } from '@/api/product';
 import { ProductData, CartState } from '../app/cart/types';
 
@@ -38,6 +38,7 @@ export const useCart = createStore<CartState>((get, set) => ({
     }
 
     set({ productsData });
+    addProduct(product._id, productsData[product._id].quantity);
   },
   deleteProduct: (productId: string, quantity: number) => {
     const { productsData } = get();
@@ -50,6 +51,9 @@ export const useCart = createStore<CartState>((get, set) => ({
 
     if (productsData[productId].quantity < 1) {
       delete productsData[productId];
+      deleteProduct(productId);
+    } else {
+      editQuantity(productId, productsData[productId].quantity);
     }
 
     set({ productsData });
