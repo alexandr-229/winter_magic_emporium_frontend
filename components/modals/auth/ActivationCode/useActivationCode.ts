@@ -5,14 +5,18 @@ import {
   useMemo,
 } from 'react';
 import { useMutation, useQueryClient } from 'react-query';
+
 import { TokenResponse, activate } from '@/api/auth';
 import { CodeInputRefData } from '@/components/small/CodeInput/types';
 import { useUser } from '@/store/user';
+import { useCart } from '@/store/cart';
+
 import { useClearInputs } from '../hooks/useClearInputs';
 import { useAuthModal } from '../../../../store/auth-modal';
 
 const { getUser, setUser } = useUser.getStore();
 const { onCloseAuthModal } = useAuthModal.getStore();
+const { getCart } = useCart.getStore();
 
 export const useActivationCode = (extraArgs: Record<string, unknown>) => {
   const [code, setCode] = useState<string>('');
@@ -42,6 +46,7 @@ export const useActivationCode = (extraArgs: Record<string, unknown>) => {
 
     if (user) {
       onCloseAuthModal();
+      getCart();
 
       queryClient.invalidateQueries();
     }

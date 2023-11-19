@@ -3,12 +3,14 @@ import { useMutation, useQueryClient } from 'react-query';
 import { InputRefData } from '@/components/small/Input/types';
 import { useUser } from '@/store/user';
 import { TokenResponse, login } from '@/api/auth';
+import { useCart } from '@/store/cart';
 import { validateEmail } from '../helpers';
 import { useAuthModal } from '../../../../store/auth-modal';
 import { useClearInputs } from '../hooks/useClearInputs';
 
 const { onCloseAuthModal } = useAuthModal.getStore();
 const { setUser, getUser } = useUser.getStore();
+const { getCart } = useCart.getStore();
 
 export const useLogin = () => {
   const [email, setEmail] = useState<string>('');
@@ -38,6 +40,7 @@ export const useLogin = () => {
 
     const user = await getUser();
     setUser(user);
+    getCart();
 
     setLoading(false);
     onCloseAuthModal();
