@@ -1,7 +1,7 @@
-import { Store } from '@/helpers/store';
-import { AuthModalStore, ModalAlias } from './types';
+import { createStore } from '@/helpers/store';
+import { AuthModalState, ModalAlias } from '../components/modals/auth/types';
 
-export const authModalStore = new Store<AuthModalStore>((get, set) => ({
+export const useAuthModal = createStore<AuthModalState>((get, set) => ({
   open: false,
   dialog: null,
   modal: ModalAlias.LOGIN,

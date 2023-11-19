@@ -4,8 +4,10 @@ export interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,
   id: string;
   img: string;
   title: string;
-  description: string;
+  qtyInStock: number;
+  quantity: number;
   price: number;
-  isFavorite: boolean;
-  onAddToCart: () => void;
+  size: string;
+  setQuantity: (quantity: number) => void;
+  onDelete: () => void;
 }

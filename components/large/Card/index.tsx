@@ -14,6 +14,7 @@ export const Card = ({
   price,
   isFavorite,
   className,
+  onAddToCart,
   ...props
 }: Props) => {
   return (
@@ -47,7 +48,7 @@ export const Card = ({
             </p>
           </div>
         </div>
-        <Button className={styles.button}>To cart</Button>
+        <Button className={styles.button} onClick={onAddToCart}>To cart</Button>
       </div>
     </div>
   );

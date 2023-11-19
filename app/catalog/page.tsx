@@ -2,10 +2,13 @@
 
 import React from 'react';
 import Image from 'next/image';
+
 import { Pagination } from '@/components/large/Pagination';
 import { Filters } from '@/components/large/Filters';
 import { Card } from '@/components/large/Card';
 import { Loader } from '@/components/small/Loader';
+import { useCart } from '@/store/cart';
+
 import { useCatalog } from './useCatalog';
 import styles from './styles.module.css';
 
@@ -20,6 +23,7 @@ const Catalog = () => {
     setPage,
     setFilters,
   } = useCatalog();
+  const { addProduct } = useCart();
 
   return (
     <main className={styles.page}>
@@ -58,6 +62,7 @@ const Catalog = () => {
                 description={`${product.title} ${product.size.value} ${product.size.unit}`}
                 price={product.price}
                 isFavorite={product.isFavorite}
+                onAddToCart={() => addProduct(product, 1)}
               />
             ))}
           </div>

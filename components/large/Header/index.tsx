@@ -1,24 +1,53 @@
 'use client';
 
-import React from 'react';
+import React, { useMemo } from 'react';
 import cn from 'classnames';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+
 import { Button } from '@/components/small/Button';
 import { Search } from '@/components/small/Search';
-import { authModalStore } from '@/components/modals/auth/store';
+import { useAuthModal } from '@/store/auth-modal';
 import { AuthModal } from '@/components/modals/auth';
 import { ModalAlias } from '@/components/modals/auth/types';
+import { useUser } from '@/store/user';
+import { useCart } from '@/store/cart';
+
 import styles from './styles.module.css';
 import { Props } from './types';
 import CartIcon from './cart.svg';
 import LikeIcon from './like.svg';
 import AvatarIcon from './avatar.svg';
 
-const { onOpenAuthModal } = authModalStore.getStore();
+const { onOpenAuthModal } = useAuthModal.getStore();
 
 export const Header = ({ className, ...props }: Props) => {
-  const cartSize = 1;
+  const { user } = useUser();
+  const { productsData } = useCart();
+  const router = useRouter();
+
+  const handleAvatarIconClick = () => {
+    if (!user) {
+      onOpenAuthModal(ModalAlias.LOGIN);
+      return;
+    }
+    router.push('/profile');
+  };
+
+  const handleCartIconClick = () => {
+    if (!user) {
+      onOpenAuthModal(ModalAlias.LOGIN);
+      return;
+    }
+    router.push('/cart');
+  };
+
+  const cartSize = (() => {
+    const result = Object.values(productsData).reduce((acc, product) => acc + product.quantity, 0);
+
+    return result;
+  })();
 
   return (
     <>
@@ -69,13 +98,13 @@ export const Header = ({ className, ...props }: Props) => {
         <Search className={styles.search} />
         <AvatarIcon
           className={cn(styles.icon, styles.pointer, styles.iconHover)}
-          onClick={() => onOpenAuthModal(ModalAlias.LOGIN)}
+          onClick={handleAvatarIconClick}
         />
         <div>
           <LikeIcon className={cn(styles.icon, styles.pointer, styles.iconHover)} />
         </div>
-        <div className={styles.cartWrapper}>
-          {cartSize && (
+        <div className={styles.cartWrapper} onClick={handleCartIconClick}>
+          {!!cartSize && (
             <div className={styles.cartSizeTag}>
               {cartSize > 9 ? '9+' : cartSize}
             </div>

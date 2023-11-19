@@ -5,7 +5,7 @@ import { Props } from './types';
 import styles from './styles.module.css';
 
 export const Tag = ({
-  width,
+  width = 'auto',
   height,
   color,
   children,

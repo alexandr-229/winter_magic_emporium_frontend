@@ -1,7 +1,10 @@
 import React from 'react';
 import cn from 'classnames';
 import Image from 'next/image';
+
 import { Loader } from '@/components/small/Loader';
+import { useCart } from '@/store/cart';
+
 import { Props } from './types';
 import styles from './styles.module.css';
 import { Card } from '../Card';
@@ -13,6 +16,8 @@ export const ProductList = ({
   className,
   ...props
 }: Props) => {
+  const { addProduct } = useCart();
+
   return (
     <div className={cn(styles.wrapper, className)} {...props}>
       {loading && (
@@ -42,6 +47,7 @@ export const ProductList = ({
           description={`${product.title} ${product.size.value} ${product.size.unit}`}
           price={product.price}
           isFavorite={false}
+          onAddToCart={() => addProduct(product, 1)}
         />
       ))}
       {!products.length && !error && !loading && (

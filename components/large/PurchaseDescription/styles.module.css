@@ -1,0 +1,111 @@
+.wrapper {
+	width: 300px;
+	border-radius: 15px;
+	background: #222;
+	padding: 20px;
+	position: relative;
+	z-index: 10;
+}
+
+.wrapper p {
+	margin: 0;
+	padding: 0;
+}
+
+.header {
+	display: grid;
+	grid-template-columns: auto auto auto 1fr;
+	align-items: center;
+	justify-content: left;
+	container-type: inline-size;
+	margin-bottom: 22px;
+}
+
+.boldText {
+	color: #FFF;
+	font-family: Roboto;
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 128.906%;
+	white-space: nowrap;
+}
+
+.price {
+	color: #FF2727;
+	text-align: right;
+	font-family: Roboto;
+	font-size: 21px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 128.906%;
+	margin: 4px 2cqw 0 2.5cqw !important;
+	white-space: nowrap;
+	font-size: 6cqw;
+}
+
+.discount {
+	color: #B5B5B5;
+	font-family: Roboto;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	margin-top: 3px !important;
+	text-decoration-line: line-through;
+	white-space: nowrap;
+	font-size: 5cqw;
+}
+
+.discountTag {
+	border-radius: 5px;
+	padding: 0 2.5cqw !important;
+	justify-self: right;
+	color: #FFF;
+	text-align: center;
+	font-family: Roboto;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+}
+
+.subtitle {
+	color: #B5B5B5;
+	font-family: Roboto;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 100%;
+	text-transform: uppercase;
+}
+
+.rowInfo {
+	width: 100%;
+	margin-top: 17px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.smallText {
+	color: #7C7C7C;
+	font-family: Roboto;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+}
+
+.footer {
+	width: 300px;
+	padding: 50px 19px 19px 19px;
+	border-radius: 15px;
+	position: relative;
+	bottom: 35px;
+	background-color: #fff;
+}
+
+.button {
+	width: 100% !important;
+}

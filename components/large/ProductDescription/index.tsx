@@ -4,6 +4,7 @@ import React from 'react';
 import cn from 'classnames';
 import Image from 'next/image';
 import { getDollarPrice } from '@/helpers';
+import { QuantityEditor } from '@/components/small/QuantityEditor';
 import { Tag } from '@/components/small/Tag';
 import { Button } from '@/components/small/Button';
 import styles from './styles.module.css';
@@ -15,6 +16,7 @@ import DescriptionIcon from './description.svg';
 import CharacteristicsIcon from './characteristics.svg';
 
 export const ProductDescription = ({
+  onAddToCart,
   className,
   pricePerItem,
   discountPercent,
@@ -28,11 +30,10 @@ export const ProductDescription = ({
     quantity,
     activeSize,
     activeDescription,
+    setQuantity,
     setActiveSize,
-    incrementQuantity,
-    decrementQuantity,
     setActiveDescription,
-  } = useProductDescription(sizes, totalQuantity);
+  } = useProductDescription(sizes);
 
   return (
     <div className={cn(styles.wrapper, className)} {...props}>
@@ -88,29 +89,8 @@ export const ProductDescription = ({
       </div>
       <div className={styles.quantityBlock}>
         <p className={cn(styles.text, styles.blockTitle)}>Select quantity</p>
-        <div className={styles.selectQuantity}>
-          <button
-            type="button"
-            className={styles.quantityButton}
-            onClick={decrementQuantity}
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 38 38" fill="black">
-              <rect x="6.5" y="17.5" width="25" height="3" rx="1" fill="black" />
-            </svg>
-          </button>
-          <p className={cn(styles.text, styles.productQuantity)}>{quantity}</p>
-          <button
-            type="button"
-            className={styles.quantityButton}
-            onClick={incrementQuantity}
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 38 38" fill="none">
-              <rect x="6.5" y="17.5" width="25" height="3" rx="1" fill="black" />
-              <rect x="17.5" y="6.5" width="3" height="25" rx="1" fill="black" />
-            </svg>
-          </button>
-        </div>
-        <Button className={styles.cartButton}>
+        <QuantityEditor quantity={quantity} setQuantity={setQuantity} minmax={[1, totalQuantity]} className={styles.selectQuantity} />
+        <Button className={styles.cartButton} onClick={() => onAddToCart(quantity)}>
           <p className={styles.text}>To cart</p>
           <CartIcon className={styles.cartIcon} />
         </Button>

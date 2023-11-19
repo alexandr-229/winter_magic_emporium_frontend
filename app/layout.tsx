@@ -2,10 +2,10 @@ import React from 'react';
 import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import { ReduxProvider } from '@/store/provider';
 import { Header } from '@/components/large/Header';
 import { Footer } from '@/components/large/Footer';
 import { QueryProvider } from './query.provider';
+import { InitProvider } from './init.provider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -23,11 +23,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <QueryProvider>
-          <ReduxProvider>
+          <InitProvider>
             <Header />
             {children}
             <Footer />
-          </ReduxProvider>
+          </InitProvider>
         </QueryProvider>
       </body>
     </html>

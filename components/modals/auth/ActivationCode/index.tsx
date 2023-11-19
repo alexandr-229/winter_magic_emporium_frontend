@@ -4,12 +4,12 @@ import { Button } from '@/components/small/Button';
 import { CodeInput } from '@/components/small/CodeInput';
 import { Loader } from '@/components/small/Loader';
 import styles from './styles.module.css';
-import { authModalStore } from '../store';
+import { useAuthModal } from '../../../../store/auth-modal';
 import { useActivationCode } from './useActivationCode';
 import { ModalProps } from '../types';
 import { googleOauth } from '../helpers';
 
-const { onCloseAuthModal } = authModalStore.getStore();
+const { onCloseAuthModal } = useAuthModal.getStore();
 
 export const ActivationCode = ({ extraArgs }: ModalProps) => {
   const {

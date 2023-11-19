@@ -3,11 +3,14 @@
 import React from 'react';
 import Image from 'next/image';
 import cn from 'classnames';
+
 import { ProductDescription } from '@/components/large/ProductDescription';
 import { Slider } from '@/components/large/Slider';
 import { ProductTag } from '@/components/large/Slider/types';
 import { Loader } from '@/components/small/Loader';
 import { ProductList } from '@/components/large/ProductList';
+import { useCart } from '@/store/cart';
+
 import styles from './styles.module.css';
 import { useProduct } from './useProduct';
 
@@ -23,6 +26,7 @@ const Product = () => {
     similarProductsError,
     similarProductsLoading,
   } = useProduct();
+  const { addProduct } = useCart();
 
   return (
     <div className={styles.wrapper}>
@@ -60,6 +64,7 @@ const Product = () => {
             totalQuantity={product?.quantity || 0}
             sizes={[`${product?.size.value || 1}${product?.size.unit || 'm'}`]}
             description={product?.description}
+            onAddToCart={(quantity) => addProduct(product, quantity)}
             size={{
               height: `${product?.size.value || 1}${product?.size.unit || 'm'}`,
               width: `${product?.size.value || 1}${product?.size.unit || 'm'}`,

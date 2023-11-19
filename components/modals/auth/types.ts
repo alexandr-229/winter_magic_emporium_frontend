@@ -7,7 +7,7 @@ export enum ModalAlias {
   GOOGLE_LOADING = 'GoogleLoading',
 }
 
-export interface AuthModalStore {
+export interface AuthModalState {
   open: boolean;
   modal: ModalAlias;
   dialog: HTMLDialogElement | null;

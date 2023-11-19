@@ -1,0 +1,73 @@
+.wrapper {
+	width: 950px;
+	height: 180px;
+	border-radius: 15px;
+	background: #222;
+
+	overflow: hidden;
+	display: flex;
+	position: relative;
+}
+
+.close {
+	position: absolute;
+	cursor: pointer;
+	right: 20px;
+	top: 20px;
+}
+
+.photoWrapper {
+	height: 100%;
+	max-width: 23%;
+	margin-right: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.photo {
+	height: 180px;
+	width: 100%;
+	object-fit: contain;
+}
+
+.mainBlock {
+	width: 70%;
+}
+
+.text {
+	color: #FFF;
+	font-family: Roboto;
+	font-style: normal;
+	line-height: normal;
+}
+
+.title,
+.bold {
+	font-size: 18px;
+	font-weight: 500;
+}
+
+.descriptionWrapper {
+	display: flex;
+	gap: 20px;
+}
+
+.description {
+	color: #B5B5B5;
+	font-size: 16px;
+	font-weight: 400;
+}
+
+.bold {
+	color: #FFF;
+}
+
+.price {
+	font-size: 18px;
+	font-weight: 700;
+	line-height: 128.906%;
+	right: 22px;
+	bottom: 10px;
+	position: absolute;
+}
