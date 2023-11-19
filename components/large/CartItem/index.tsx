@@ -10,22 +10,24 @@ import { Props } from './types';
 import styles from './styles.module.css';
 
 export const CartItem = ({
+  setQuantity,
+  onDelete,
   qtyInStock,
   className,
+  quantity,
   price,
   title,
   size,
   img,
   ...props
 }: Props) => {
-  const [quantity, setQuantity] = useState(1);
-
   return (
     <div
       className={cn(styles.wrapper, className)}
       {...props}
     >
       <Image
+        onClick={onDelete}
         className={styles.close}
         src="/icons/close-white.svg"
         alt="close"
@@ -39,21 +41,25 @@ export const CartItem = ({
           alt={title}
         />
       </div>
-      <p className={cn(styles.text, styles.title)}>{title}</p>
-      <div className={styles.descriptionWrapper}>
-        <p className={cn(styles.text, styles.description, styles.qtyInStock)}>
-          In stock:
-          {' '}
-          <span className={styles.bold}>{qtyInStock}</span>
-        </p>
-        <p className={cn(styles.text, styles.description, styles.size)}>
-          Size:
-          {' '}
-          <span className={styles.bold}>{size}</span>
-        </p>
+      <div className={styles.mainBlock}>
+        <p className={cn(styles.text, styles.title)}>{title}</p>
+        <div className={styles.descriptionWrapper}>
+          <p className={cn(styles.text, styles.description, styles.qtyInStock)}>
+            In stock:
+            {' '}
+            <span className={styles.bold}>{qtyInStock}</span>
+          </p>
+          <p className={cn(styles.text, styles.description, styles.size)}>
+            Size:
+            {' '}
+            <span className={styles.bold}>{size}</span>
+          </p>
+        </div>
+        <QuantityEditor quantity={quantity} setQuantity={setQuantity} minmax={[0, qtyInStock]} className={styles.quantityEditor} />
       </div>
-      <QuantityEditor quantity={quantity} setQuantity={setQuantity} minmax={[1, qtyInStock]} className={styles.quantityEditor} />
-      <p className={cn(styles.text, styles.price)}>{getDollarPriceForItem(price)}</p>
+      <div>
+        <p className={cn(styles.text, styles.price)}>{getDollarPriceForItem(price)}</p>
+      </div>
     </div>
   );
 };

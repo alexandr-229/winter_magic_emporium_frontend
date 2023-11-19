@@ -8,4 +8,6 @@ export interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,
   quantity: number;
   price: number;
   size: string;
+  setQuantity: (quantity: number) => void;
+  onDelete: () => void;
 }

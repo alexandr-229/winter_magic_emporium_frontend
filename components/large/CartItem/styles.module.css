@@ -5,14 +5,8 @@
 	background: #222;
 
 	overflow: hidden;
-	display: grid;
+	display: flex;
 	position: relative;
-	grid-template-columns: 30% 150px auto 200px;
-	column-gap: 20px;
-	grid-template-areas:
-		"photo title title title"
-		"photo description description ."
-		"photo quantityEditor . price";
 }
 
 .close {
@@ -23,9 +17,9 @@
 }
 
 .photoWrapper {
-	grid-area: photo;
 	height: 100%;
-	width: 90%;
+	max-width: 23%;
+	margin-right: 20px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -33,8 +27,12 @@
 
 .photo {
 	height: 180px;
-	max-width: 100%;
+	width: 100%;
 	object-fit: contain;
+}
+
+.mainBlock {
+	width: 70%;
 }
 
 .text {
@@ -44,10 +42,6 @@
 	line-height: normal;
 }
 
-.title {
-	grid-area: title;
-}
-
 .title,
 .bold {
 	font-size: 18px;
@@ -55,7 +49,6 @@
 }
 
 .descriptionWrapper {
-	grid-area: description;
 	display: flex;
 	gap: 20px;
 }
@@ -70,15 +63,11 @@
 	color: #FFF;
 }
 
-.quantityEditor {
-	grid-area: quantityEditor;
-}
-
 .price {
 	font-size: 18px;
 	font-weight: 700;
 	line-height: 128.906%;
-	justify-self: right;
-	margin-right: 20px;
-	grid-area: price;
+	right: 22px;
+	bottom: 10px;
+	position: absolute;
 }

@@ -1,54 +1,56 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 
 import { CartItem } from '@/components/large/CartItem';
 import { PurchaseDescription } from '@/components/large/PurchaseDescription';
-import styles from './styles.module.css';
+import { Loader } from '@/components/small/Loader';
+import { useCart } from '@/store/cart';
 import { useCartPage } from './useCartPage';
+import styles from './styles.module.css';
 
 const Cart = () => {
-  const [quantity, setQuantity] = useState(0);
-  const { purchaseData } = useCartPage();
+  const {
+    data,
+    isLoading,
+    purchaseData,
+    changeQuantity,
+    deleteProductFromCart,
+  } = useCartPage();
+  const { productsData } = useCart();
+
+  if (isLoading) {
+    return (
+      <div className={styles.loaderWrapper}>
+        <Loader width={7} size={70} />
+      </div>
+    );
+  }
 
   return (
     <div className={styles.page}>
       <div className={styles.titleWrapper}>
         <h1 className={styles.title}>Cart</h1>
-        <p className={styles.productsQuantity}>5 products</p>
+        <p className={styles.productsQuantity}>
+          {`${purchaseData.totalProducts} ${purchaseData.totalProducts > 1 ? 'products' : 'product'}`}
+        </p>
       </div>
       <main className={styles.main}>
         <div className={styles.products}>
-          <CartItem
-            size="30m"
-            id="123"
-            img="/uploads/2023-14-10/02:41:45.655-Node.js_logo_2015.svg.png"
-            qtyInStock={10}
-            quantity={quantity}
-            title="Title 1234"
-            price={100}
-            className={styles.product}
-          />
-          <CartItem
-            size="30m"
-            id="123"
-            img="/uploads/2023-14-10/02:41:45.655-Node.js_logo_2015.svg.png"
-            qtyInStock={10}
-            quantity={quantity}
-            title="Title 1234"
-            price={100}
-            className={styles.product}
-          />
-          <CartItem
-            size="30m"
-            id="123"
-            img="/uploads/2023-14-10/02:41:45.655-Node.js_logo_2015.svg.png"
-            qtyInStock={10}
-            quantity={quantity}
-            title="Title 1234"
-            price={100}
-            className={styles.product}
-          />
+          {data?.products.map((productItem) => (
+            <CartItem
+              size={`${productItem.product.size.value} ${productItem.product.size.unit}`}
+              id={productItem.product._id}
+              img={productItem.product.photos[0]}
+              qtyInStock={productItem.product.quantity}
+              quantity={productsData[productItem.product._id]?.quantity || 0}
+              title={productItem.product.title}
+              price={productItem.product.price}
+              className={styles.product}
+              setQuantity={(quantity) => changeQuantity(quantity, productItem.product._id)}
+              onDelete={() => deleteProductFromCart(productItem.product._id)}
+            />
+          ))}
         </div>
         <PurchaseDescription
           totalProducts={purchaseData.totalProducts}
