@@ -1,3 +1,5 @@
 import { DetailedHTMLProps, ButtonHTMLAttributes } from 'react';
 
-export interface Props extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {}
+export interface Props extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
+  loading?: boolean;
+}

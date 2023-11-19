@@ -24,5 +24,8 @@ export const url = {
 		addProduct: `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/cart/product/`,
 		deleteProduct: (id: string) => `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/cart/${id}/`,
 		editQuantity: (id: string) => `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/cart/${id}/`,
+	},
+	payment: {
+		pay:  `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/payment/pay/`,
 	}
 };

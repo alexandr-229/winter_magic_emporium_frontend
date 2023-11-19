@@ -10,6 +10,8 @@ export const PurchaseDescription = ({
   totalProducts,
   totalPrice,
   discount,
+  loading,
+  onPay,
 }: Props) => {
   return (
     <div>
@@ -32,7 +34,7 @@ export const PurchaseDescription = ({
       </div>
       {!!totalProducts && (
         <div className={styles.footer}>
-          <Button className={styles.button}>
+          <Button className={styles.button} loading={loading} onClick={onPay}>
             Checkout
           </Button>
         </div>
