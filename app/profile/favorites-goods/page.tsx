@@ -1,3 +1,4 @@
+import { profilePage } from '@/components/hoc/ProfileLayout';
 import React from 'react';
 
 const FavoriteGoods = () => {
@@ -8,4 +9,4 @@ const FavoriteGoods = () => {
   );
 };
 
-export default FavoriteGoods;
+export default profilePage(FavoriteGoods);

@@ -1,3 +1,4 @@
+import { profilePage } from '@/components/hoc/ProfileLayout';
 import React from 'react';
 
 const OrderHistory = () => {
@@ -8,4 +9,4 @@ const OrderHistory = () => {
   );
 };
 
-export default OrderHistory;
+export default profilePage(OrderHistory);

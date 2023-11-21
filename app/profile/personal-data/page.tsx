@@ -1,3 +1,4 @@
+import { profilePage } from '@/components/hoc/ProfileLayout';
 import React from 'react';
 
 const PersonalData = () => {
@@ -8,4 +9,4 @@ const PersonalData = () => {
   );
 };
 
-export default PersonalData;
+export default profilePage(PersonalData);
