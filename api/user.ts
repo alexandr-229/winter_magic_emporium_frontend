@@ -8,6 +8,7 @@ export interface User {
     lastName: string;
     phone: string;
     level: number;
+    photo?: string;
 }
 
 export const getMe = async () => {

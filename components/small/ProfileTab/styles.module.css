@@ -1,0 +1,37 @@
+.tab {
+	width: 280px;
+	height: 50px;
+	border-radius: 8px;
+	padding: 0 20px;
+	background: #222;
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	justify-content: left;
+	border: none;
+}
+
+.tab.active {
+	background: #FFF;
+}
+
+.tab.active p {
+	color: #000;
+}
+
+.tab.active path {
+	stroke: #FF2727;
+}
+
+.tab p {
+	color: #FFF;
+	font-family: Roboto;
+	font-size: 15px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 128.906%;
+}
+
+.tab svg {
+	margin-right: 18px;
+}

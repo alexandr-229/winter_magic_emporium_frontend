@@ -1,0 +1,7 @@
+.tab {
+	margin-bottom: 15px;
+}
+
+.tab:last-child {
+	margin-bottom: 0;
+}
