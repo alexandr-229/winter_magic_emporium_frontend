@@ -1,7 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
 
-import { GoldIcon } from '@/assets/icons/gold';
+import { GoldIcon } from '@/assets/icons/profile/gold';
 import styles from './styles.module.css';
 import { UserLevelProps } from './types';
 
