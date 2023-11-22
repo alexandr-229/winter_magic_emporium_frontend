@@ -1,0 +1,42 @@
+.wrapper {
+	display: flex;
+	align-items: center;
+}
+
+.title {
+	color: #FFF;
+	font-family: Roboto;
+	font-size: 10px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	text-decoration-line: underline;
+	margin: 0 7px;
+}
+
+.progressBarWrapper {
+	width: 110px;
+	height: 10px;
+	border-radius: 3px;
+	position: relative;
+	background: #4A4A4A;
+	display: flex;
+	align-items: center;
+}
+
+.progressBar {
+	height: 10px;
+	border-radius: 3px;
+	background: #FFD704;
+}
+
+.progressBarWrapper p {
+	position: absolute;
+	color: #FFF;
+	font-family: Roboto;
+	font-size: 6px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: normal;
+	right: 5px;
+}
