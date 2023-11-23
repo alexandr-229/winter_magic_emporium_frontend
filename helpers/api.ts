@@ -18,6 +18,7 @@ export const url = {
 		user: {
 			getMe: `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/user/me`,
 			changeFavorite: `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/user/favorites`,
+			changeProfile: `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/user/profile`,
 		}
 	},
 	cart: {

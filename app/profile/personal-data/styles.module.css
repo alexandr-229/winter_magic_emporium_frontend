@@ -9,6 +9,7 @@
 }
 
 .inputs {
+	min-width: 700px;
 	width: 100%;
 	display: flex;
 	flex-wrap: wrap;
@@ -18,7 +19,7 @@
 }
 
 .input {
-	width: 45%;
+	width: 44%;
 }
 
 .save {
