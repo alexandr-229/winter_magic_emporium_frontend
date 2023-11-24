@@ -58,6 +58,10 @@
 	margin-top: 0.7rem;
 }
 
+.hide {
+	display: none;
+}
+
 @keyframes imgZoom {
 	from {
 		transform: scale(1);

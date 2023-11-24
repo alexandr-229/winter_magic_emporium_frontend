@@ -15,8 +15,11 @@ export const Content = ({ className, ...props }: Props) => {
   const {
     loading,
     isDragging,
+    fileInputRef,
     handleOnDrop,
     setIsDragging,
+    handleOnSelectClick,
+    handleOnChangeFileInput,
   } = useAvatar();
 
   return (
@@ -44,7 +47,14 @@ export const Content = ({ className, ...props }: Props) => {
           />
           <h3 className={styles.text}>Drag an image here</h3>
           <p className={styles.text}>JPG, PNG · Maximum size 5Mb</p>
-          <Button className={styles.button}>Select</Button>
+          <input
+            type="file"
+            accept="image/png, image/jpg"
+            ref={fileInputRef}
+            className={styles.hide}
+            onChange={handleOnChangeFileInput}
+          />
+          <Button className={styles.button} onClick={handleOnSelectClick}>Select</Button>
         </div>
       )}
     </div>
