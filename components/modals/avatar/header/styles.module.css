@@ -1,0 +1,22 @@
+.header {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.header p {
+	color: #000;
+	text-align: center;
+	font-family: Roboto;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 20.02px;
+}
+
+.close {
+	position: absolute;
+	cursor: pointer;
+	right: 1rem;
+}

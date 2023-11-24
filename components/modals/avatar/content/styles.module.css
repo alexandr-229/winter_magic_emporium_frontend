@@ -1,0 +1,68 @@
+.wrapper {
+	margin: 2rem auto 0 auto;
+	width: 38rem;
+	height: 23rem;
+	border-radius: 8px;
+	background: #FFF;
+	box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.09);
+	gap: 1rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.draggableContent {
+	width: 35.5rem;
+	height: 17.5rem;
+	border-radius: 8px;
+	padding-top: 3rem;
+	gap: 1.7rem;
+	border: 1px dashed rgba(176, 176, 176, 0.50);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	transition: 0.5s all;
+}
+
+.draggableContent.drag {
+	border: 2px dashed rgba(176, 176, 176, 0.50);
+}
+
+.draggableContent.drag img {
+	animation: imgZoom 0.5s;
+	transform: scale(1.3);
+}
+
+.text {
+	color: #484848;
+	text-align: center;
+	font-family: Roboto;
+	font-style: normal;
+	line-height: 20.02px;
+	margin: 0;
+}
+
+.draggableContent h3 {
+	font-size: 18px;
+	font-weight: 500;
+}
+
+.draggableContent p {
+	font-size: 14px;
+	font-weight: 400;
+	opacity: 0.5;
+}
+
+.button {
+	margin-top: 0.7rem;
+}
+
+@keyframes imgZoom {
+	from {
+		transform: scale(1);
+	}
+	to {
+		transform: scale(1.3);
+	}
+}
