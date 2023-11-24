@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import cn from 'classnames';
 import Image from 'next/image';
 
@@ -9,10 +9,15 @@ import { Loader } from '@/components/small/Loader';
 
 import styles from './styles.module.css';
 import { Props } from './types';
+import { useAvatar } from '../useAvatar';
 
 export const Content = ({ className, ...props }: Props) => {
-  const [drag, setDrag] = useState(false);
-  const [loading, setLading] = useState(false);
+  const {
+    loading,
+    isDragging,
+    handleOnDrop,
+    setIsDragging,
+  } = useAvatar();
 
   return (
     <div className={cn(styles.wrapper, className)} {...props}>
@@ -23,10 +28,12 @@ export const Content = ({ className, ...props }: Props) => {
         </>
       ) : (
         <div
-          onMouseEnter={() => setDrag(true)}
-          onMouseLeave={() => setDrag(false)}
+          onDrop={handleOnDrop}
+          onDragEnter={() => setIsDragging(true)}
+          onDragLeave={() => setIsDragging(false)}
+          onDragOver={(event) => event.preventDefault()}
           className={cn(styles.draggableContent, {
-            [styles.drag]: drag,
+            [styles.drag]: isDragging,
           })}
         >
           <Image
@@ -37,7 +44,7 @@ export const Content = ({ className, ...props }: Props) => {
           />
           <h3 className={styles.text}>Drag an image here</h3>
           <p className={styles.text}>JPG, PNG · Maximum size 5Mb</p>
-          <Button className={styles.button} onClick={() => setLading(true)}>Select</Button>
+          <Button className={styles.button}>Select</Button>
         </div>
       )}
     </div>
