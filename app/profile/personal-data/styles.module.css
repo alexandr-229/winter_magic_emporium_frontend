@@ -1,0 +1,27 @@
+.title {
+	color: #FFF;
+	font-family: Montserrat;
+	font-size: 25px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	margin: 0;
+}
+
+.inputs {
+	min-width: 700px;
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	row-gap: 23px;
+	column-gap: 30px;
+	margin: 30px 0;
+}
+
+.input {
+	width: 44%;
+}
+
+.save {
+	width: 20rem;
+}

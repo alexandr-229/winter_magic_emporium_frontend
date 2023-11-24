@@ -23,3 +23,8 @@ export const changeFavorite = async (productId: string, action: 'Add' | 'Delete'
     });
     return data;
 };
+
+export const changeProfile = async (user: Partial<User>) => {
+    const { data } = await client.put<{ message: 'OK' }>(url.account.user.changeProfile, user);
+    return data;
+};
