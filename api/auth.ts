@@ -30,3 +30,15 @@ export const googleOauth = async (code: string) => {
 
 	return data;
 }
+
+export const changePassword = async (oldPassword: string, newPassword: string) => {
+	const { data } = await client.put(url.account.auth.changePassword, { oldPassword, newPassword });
+
+	return data;
+}
+
+export const logout = async () => {
+	const { data } = await client.post(url.account.auth.logout);
+
+	return data;
+}

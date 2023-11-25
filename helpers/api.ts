@@ -14,6 +14,8 @@ export const url = {
 			activate: `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/auth/activate`,
 			google: `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/auth/oauth`,
 			refresh: `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/auth/refresh`,
+			changePassword: `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/auth/password`,
+			logout: `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/auth/logout`,
 		},
 		user: {
 			getMe: `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/user/me`,
