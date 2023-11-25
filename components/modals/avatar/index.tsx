@@ -1,4 +1,6 @@
 import React, { useEffect, useRef } from 'react';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { useAvatarModal } from '@/store/avatar-modal';
 
@@ -22,11 +24,14 @@ export const AvatarModal = () => {
   }, []);
 
   return (
-    <Wrapper ref={dialogRef}>
-      <div className={styles.modal}>
-        <Header />
-        <Content />
-      </div>
-    </Wrapper>
+    <>
+      <ToastContainer />
+      <Wrapper ref={dialogRef}>
+        <div className={styles.modal}>
+          <Header />
+          <Content />
+        </div>
+      </Wrapper>
+    </>
   );
 };

@@ -20,7 +20,7 @@ export const ProfileHeader = ({ className, ...props }: ProfileHeaderProps) => {
     return null;
   }
 
-  const avatarUrl = user.photo ? `${process.env.NEXT_PUBLIC_BACKEND_URL}${user.phone}` : '/images/default-profile-photo.png';
+  const avatarUrl = user.photo ? `${process.env.NEXT_PUBLIC_BACKEND_URL}${user.photo}` : '/images/default-profile-photo.png';
 
   return (
     <div className={cn(className, styles.block, styles.wrapper)} {...props}>
