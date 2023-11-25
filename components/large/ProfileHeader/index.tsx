@@ -7,23 +7,27 @@ import Link from 'next/link';
 
 import { useUser } from '@/store/user';
 import { UserLevel } from '@/components/small/UserLevel';
-import { ProfileHeaderProps } from './types';
+import { useAvatarModal } from '@/store/avatar-modal';
+
 import styles from './styles.module.css';
+import { ProfileHeaderProps } from './types';
 
 export const ProfileHeader = ({ className, ...props }: ProfileHeaderProps) => {
   const { user } = useUser();
+  const { onOpenAvatarModal } = useAvatarModal();
 
   if (!user) {
     return null;
   }
 
-  const avatarUrl = user.photo ? `${process.env.NEXT_PUBLIC_BACKEND_URL}${user.phone}` : '/images/default-profile-photo.png';
+  const avatarUrl = user.photo ? `${process.env.NEXT_PUBLIC_BACKEND_URL}${user.photo}` : '/images/default-profile-photo.png';
 
   return (
     <div className={cn(className, styles.block, styles.wrapper)} {...props}>
       <div className={cn(styles.content, styles.block)}>
         <div className={cn(styles.block, styles.avatarBlock)}>
           <Image
+            onClick={onOpenAvatarModal}
             className={styles.avatar}
             src={avatarUrl}
             alt="avatar"

@@ -29,5 +29,8 @@ export const url = {
 	},
 	payment: {
 		pay:  `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/payment/pay/`,
+	},
+	files: {
+		upload: `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/files/upload/`,
 	}
 };
