@@ -4,10 +4,11 @@ import {
   ChangeEvent,
   useRef,
 } from 'react';
+import { useSubmit } from './useSubmit';
 
 export const useAvatar = () => {
   const [isDragging, setIsDragging] = useState<boolean>(false);
-  const [loading, setLoading] = useState<boolean>(false);
+  const { loading, onSubmit } = useSubmit();
 
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -19,9 +20,7 @@ export const useAvatar = () => {
       return;
     }
 
-    setLoading(true);
-
-    // Send request;
+    onSubmit(file);
   };
 
   const handleOnChangeFileInput = (event: ChangeEvent<HTMLInputElement>) => {
@@ -33,9 +32,7 @@ export const useAvatar = () => {
       return;
     }
 
-    setLoading(true);
-
-    // Send request;
+    onSubmit(file);
   };
 
   const handleOnSelectClick = () => {
