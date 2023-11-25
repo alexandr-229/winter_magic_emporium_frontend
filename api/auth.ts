@@ -36,3 +36,9 @@ export const changePassword = async (oldPassword: string, newPassword: string) =
 
 	return data;
 }
+
+export const logout = async () => {
+	const { data } = await client.post(url.account.auth.logout);
+
+	return data;
+}
