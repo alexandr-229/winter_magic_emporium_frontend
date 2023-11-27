@@ -3,8 +3,14 @@
 import { useEffect, useState } from 'react';
 import { useMutation, useQueryClient } from 'react-query';
 import { changeFavorite } from '@/api/user';
-import { tagsData } from './data';
+import { useUser } from '@/store/user';
+import { useAuthModal } from '@/store/auth-modal';
+import { ModalAlias } from '@/components/modals/auth/types';
 import { ProductTag } from './types';
+import { tagsData } from './data';
+
+const { user } = useUser.getStore();
+const { onOpenAuthModal } = useAuthModal.getStore();
 
 export const useSlider = (
   photos: string[],
@@ -59,6 +65,11 @@ export const useSlider = (
   };
 
   const handleFavoriteClick = () => {
+    if (!user) {
+      onOpenAuthModal(ModalAlias.LOGIN);
+      return;
+    }
+
     const action = isFavorite ? 'Delete' : 'Add';
     mutate(action);
   };

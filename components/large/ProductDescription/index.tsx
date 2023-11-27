@@ -32,8 +32,9 @@ export const ProductDescription = ({
     activeDescription,
     setQuantity,
     setActiveSize,
+    handleAddToCart,
     setActiveDescription,
-  } = useProductDescription(sizes);
+  } = useProductDescription(sizes, onAddToCart);
 
   return (
     <div className={cn(styles.wrapper, className)} {...props}>
@@ -90,7 +91,7 @@ export const ProductDescription = ({
       <div className={styles.quantityBlock}>
         <p className={cn(styles.text, styles.blockTitle)}>Select quantity</p>
         <QuantityEditor quantity={quantity} setQuantity={setQuantity} minmax={[1, totalQuantity]} className={styles.selectQuantity} />
-        <Button className={styles.cartButton} onClick={() => onAddToCart(quantity)}>
+        <Button className={styles.cartButton} onClick={handleAddToCart}>
           <p className={styles.text}>To cart</p>
           <CartIcon className={styles.cartIcon} />
         </Button>

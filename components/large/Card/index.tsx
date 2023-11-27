@@ -3,8 +3,14 @@ import cn from 'classnames';
 import Link from 'next/link';
 import { Button } from '@/components/small/Button';
 import { getDollarPrice } from '@/helpers';
-import { Props } from './types';
+import { useUser } from '@/store/user';
+import { useAuthModal } from '@/store/auth-modal';
+import { ModalAlias } from '@/components/modals/auth/types';
 import styles from './styles.module.css';
+import { Props } from './types';
+
+const { user } = useUser.getStore();
+const { onOpenAuthModal } = useAuthModal.getStore();
 
 export const Card = ({
   id,
@@ -17,6 +23,15 @@ export const Card = ({
   onAddToCart,
   ...props
 }: Props) => {
+  const handleAddToCart = () => {
+    if (!user) {
+      onOpenAuthModal(ModalAlias.LOGIN);
+      return;
+    }
+
+    onAddToCart();
+  };
+
   return (
     <div className={cn(styles.wrapper, className)} {...props}>
       <Link href={`/product/${id}`}>
@@ -48,7 +63,7 @@ export const Card = ({
             </p>
           </div>
         </div>
-        <Button className={styles.button} onClick={onAddToCart}>To cart</Button>
+        <Button className={styles.button} onClick={handleAddToCart}>To cart</Button>
       </div>
     </div>
   );
