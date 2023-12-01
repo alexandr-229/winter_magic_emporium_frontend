@@ -22,6 +22,7 @@ export const url = {
 			changeFavorite: `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/user/favorites`,
 			changeProfile: `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/user/profile`,
 			getOrderHistory: `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/user/orders`,
+			getFavoriteProducts: `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/user/favorites`,
 		}
 	},
 	cart: {
