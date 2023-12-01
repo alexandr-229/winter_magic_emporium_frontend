@@ -1,0 +1,147 @@
+.wrapper {
+	width: 100%;
+	height: 11.5rem;
+	border-radius: 1rem;
+	border: 0.1rem solid #222;
+	background: #222;
+	display: grid;
+	grid-template-columns: 1.8rem 63% 35%;
+	padding: 1rem 2.3rem 1.8rem 1.4rem;
+}
+
+.line {
+	width: 0.5rem;
+	border-radius: 1rem;
+	height: 100%;
+}
+
+.line.green {
+	background-color: #00CA2C;
+}
+
+.line.yellow {
+	background-color: #FFD704;
+}
+
+.line.grey {
+	background-color: #626262;
+}
+
+.titleWrapper {
+	display: flex;
+	align-items: center;
+	gap: 1.1rem;
+	margin-top: 0.4rem;
+}
+
+.status {
+	font-family: Roboto;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 128.906%;
+	margin: 0;
+}
+
+.status.green {
+	color: #00CA2C;
+}
+
+.status.yellow {
+	color: #FFD704;
+}
+
+.status.grey {
+	color: #FFF;
+}
+
+.date {
+	color: #FFF;
+	font-family: Roboto;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 128.906%;
+	margin: 0;
+}
+
+.photos {
+	display: flex;
+	align-items: center;
+	gap: 0.8rem;
+	margin-top: 1.5rem;
+}
+
+.photoWrapper {
+	width: 7rem;
+	height: 7rem;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+}
+
+.productPhoto {
+	max-width: 7rem;
+	max-height: 7rem;
+	border-radius: 0.5rem;
+	object-fit: contain;
+}
+
+.rightData {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding-top: 0.4rem;
+}
+
+.orderIndex {
+	color: #FFF;
+	font-family: Roboto;
+	font-size: 15px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 128.906%;
+	text-align: right;
+	margin: 0;
+}
+
+.orderTitle {
+	color: #B5B5B5;
+	font-size: 16px;
+	font-weight: 400;
+	margin: 0;
+}
+
+.tags {
+	display: flex;
+	align-items: center;
+	gap: 1.2rem;
+}
+
+.tag {
+	width: 12.4rem;
+	height: 3rem;
+	border-radius: 0.5rem;
+	background: #F3F3F3;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.tag p {
+	color: #1C1B17;
+	font-family: Roboto;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 128.906%;
+}
+
+.paidText {
+	font-size: 11px;
+	font-weight: 500;
+}
+
+.lowOpacity {
+	opacity: 0.5;
+}

@@ -87,14 +87,14 @@ export const useCartPage = () => {
     setButtonLoading(false);
   };
 
-  const { mutate } = useMutation((email: string) => pay(email), { onSuccess: onSuccessfulPay, onError: onFailedPay });
+  const { mutate } = useMutation(() => pay(), { onSuccess: onSuccessfulPay, onError: onFailedPay });
 
   const handlePay = () => {
     if (!user) {
       return;
     }
     setButtonLoading(true);
-    mutate(user.email);
+    mutate();
   };
 
   return {

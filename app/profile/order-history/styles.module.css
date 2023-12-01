@@ -1,0 +1,40 @@
+.page {
+	width: 100%;
+}
+
+.title {
+	color: #FFF;
+	font-family: Montserrat;
+	font-size: 25px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	margin: 0 0 3.2rem 0;
+}
+
+.errorWrapper {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.errorIcon {
+	margin-right: 20px;
+}
+
+.errorMessage {
+	color: #FF2727;
+	font-size: 30px;
+}
+
+.warningMessage {
+	color: #FFD704;
+	font-size: 30px;
+}
+
+.orders {
+	display: flex;
+	flex-direction: column;
+	gap: 2.2rem;
+}
