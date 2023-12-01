@@ -41,10 +41,10 @@ export const Footer = ({ className, ...props }: Props) => {
           </div>
           <div>
             <div className={styles.block}>
-              <a href="https://t.me/SashaPoliarush" target="_blank">
+              <a href="https://t.me/SashaPoliarush" target="_blank" aria-label="">
                 <TelegramIcon className={cn(styles.icon, styles.pointer, styles.hoverIcon)} />
               </a>
-              <a href="https://github.com/alexandr-229" target="_blank">
+              <a href="https://github.com/alexandr-229" target="_blank" aria-label="">
                 <GitHubIcon className={cn(styles.icon, styles.pointer, styles.large, styles.hoverIcon)} />
               </a>
             </div>

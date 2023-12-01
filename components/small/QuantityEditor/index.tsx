@@ -29,6 +29,7 @@ export const QuantityEditor = ({
     <div className={cn(styles.wrapper, className)} {...props}>
       <button
         type="button"
+        aria-label=""
         className={styles.button}
         onClick={decrementQuantity}
       >
@@ -39,6 +40,7 @@ export const QuantityEditor = ({
       <p className={cn(styles.text, styles.quantity)}>{quantity}</p>
       <button
         type="button"
+        aria-label=""
         className={styles.button}
         onClick={incrementQuantity}
       >
