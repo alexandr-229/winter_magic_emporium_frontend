@@ -9,7 +9,6 @@ import { ModalAlias } from '@/components/modals/auth/types';
 import styles from './styles.module.css';
 import { Props } from './types';
 
-const { user } = useUser.getStore();
 const { onOpenAuthModal } = useAuthModal.getStore();
 
 export const Card = ({
@@ -23,6 +22,8 @@ export const Card = ({
   onAddToCart,
   ...props
 }: Props) => {
+  const { user } = useUser();
+
   const handleAddToCart = () => {
     if (!user) {
       onOpenAuthModal(ModalAlias.LOGIN);

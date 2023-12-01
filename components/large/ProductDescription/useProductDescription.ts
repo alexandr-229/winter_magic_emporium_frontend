@@ -6,13 +6,13 @@ import { useAuthModal } from '@/store/auth-modal';
 import { ModalAlias } from '@/components/modals/auth/types';
 import { ActiveDescription } from './types';
 
-const { user } = useUser.getStore();
 const { onOpenAuthModal } = useAuthModal.getStore();
 
 export const useProductDescription = (sizes: string[], onAddToCart: (quantity: number) => void) => {
   const [activeDescription, setActiveDescription] = useState<ActiveDescription>(ActiveDescription.PAYMENT);
   const [activeSize, setActiveSize] = useState(sizes[0]);
   const [quantity, setQuantity] = useState(1);
+  const { user } = useUser();
 
   const handleAddToCart = () => {
     if (!user) {

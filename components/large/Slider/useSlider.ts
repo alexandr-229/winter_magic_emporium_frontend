@@ -9,7 +9,6 @@ import { ModalAlias } from '@/components/modals/auth/types';
 import { ProductTag } from './types';
 import { tagsData } from './data';
 
-const { user } = useUser.getStore();
 const { onOpenAuthModal } = useAuthModal.getStore();
 
 export const useSlider = (
@@ -20,6 +19,7 @@ export const useSlider = (
 ) => {
   const [activePhoto, setActivePhoto] = useState<number>(0);
   const queryClient = useQueryClient();
+  const { user } = useUser();
 
   const onSuccess = () => {
     queryClient.invalidateQueries([productId]);
