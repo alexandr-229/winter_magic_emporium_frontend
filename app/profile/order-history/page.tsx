@@ -5,6 +5,7 @@ import Image from 'next/image';
 
 import { profilePage } from '@/components/hoc/ProfileLayout';
 import { Loader } from '@/components/small/Loader';
+import { OrderItem } from '@/components/large/OrderItem';
 
 import styles from './styles.module.css';
 import { useOrderHistory } from './useOrderHistory';
@@ -45,8 +46,8 @@ const OrderHistory = () => {
         </div>
       )}
       {!isLoading && !isError && !!data && (
-        <div className={styles.order}>
-          <p>Orders</p>
+        <div className={styles.orders}>
+          {data.map((order) => <OrderItem order={order} key={order._id} />)}
         </div>
       )}
     </div>

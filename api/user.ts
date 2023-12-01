@@ -21,6 +21,7 @@ export interface User {
 export interface Order {
     _id: string;
     products: Product[];
+    createdAt: Date | string;
     index: number;
     sum: number;
     status: OrderStatus;

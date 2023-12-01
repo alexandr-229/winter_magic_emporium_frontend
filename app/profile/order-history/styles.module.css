@@ -32,3 +32,9 @@
 	color: #FFD704;
 	font-size: 30px;
 }
+
+.orders {
+	display: flex;
+	flex-direction: column;
+	gap: 2.2rem;
+}
