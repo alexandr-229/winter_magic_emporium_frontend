@@ -100,9 +100,9 @@ export const Header = ({ className, ...props }: Props) => {
           className={cn(styles.icon, styles.pointer, styles.iconHover)}
           onClick={handleAvatarIconClick}
         />
-        <div>
+        <Link href="/profile/favorites-goods">
           <LikeIcon className={cn(styles.icon, styles.pointer, styles.iconHover)} />
-        </div>
+        </Link>
         <div className={styles.cartWrapper} onClick={handleCartIconClick}>
           {!!cartSize && (
             <div className={styles.cartSizeTag}>

@@ -50,3 +50,8 @@ export const getOrderHistory = async () => {
     const { data } = await client.get<Order[]>(url.account.user.getOrderHistory);
     return data;
 };
+
+export const getFavoriteProducts = async () => {
+    const { data } = await client.get<Product[]>(url.account.user.getFavoriteProducts);
+    return data;
+};
