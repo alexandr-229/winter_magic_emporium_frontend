@@ -9,7 +9,7 @@ const nextConfig = {
 		return config;
 	},
 	images: {
-		domains: ['localhost']
+		domains: ['localhost', 'winter-magic-emporium-backend.onrender.com']
 	},
 }
 
